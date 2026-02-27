@@ -29,7 +29,7 @@ nomeCompleto = "Antonio"; //assegnazione
 
 nomeCompleto = "Massimo"; //riassegnazione
 
-let n_diamanti = "0"
+let n_diamanti = "4"
 
 n_diamanti = "10"
 
