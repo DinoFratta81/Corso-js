@@ -1,7 +1,7 @@
 // 1. STRING - TESTO 
-let name = "Giorgio"
+let nome = "Giorgio"
 let position = '15esimo'
-let message = `Spiacente ${name}, sei arrivato ${position}; ritenta!`;
+let message = `Spiacente ${nome}, sei arrivato ${position}; ritenta!`;
 console.log(message);
 // Queste erano stringhe di testo, componibili con tutti i tipi di apici sopra rappresentati
 
