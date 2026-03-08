@@ -31,7 +31,7 @@ console.log(a -= 3)  //In questo modo riassegno a, dicendo che a è uguale a se 
 console.log(a *= 3)  //In questo modo riassegno a, dicendo che a è uguale a se stessa per 3, 
 console.log(a /= 3)  //In questo modo riassegno a, dicendo che a è uguale a se stessa diviso 3, 
 console.log(a **= 3) //In questo modo riassegno a, dicendo che a è uguale a se stessa elevato 3, 
-console.log(a %= 3)  //In questo modo riassegno a, dicendo che a è uguale a se stessa % 3, 
+console.log(a %= 3)  //In questo modo riassegno a, dicendo che a è uguale ad il resto di a/3, 
 
 
 //Operatori di incremento e decremento
