@@ -2,15 +2,15 @@
 
 // implicita (coercion) 
 
-// esplicita(casting)
+// esplicita (casting)
 
 
 //Esempi di conversione implicita
 
 
-let result = "5" + 3;
-let result2 = 9 + "7";
-let result3 = "Il tuo punteggio è:" + 100;
+let result = "5" + 3;   //Stringa
+let result2 = 9 + "7";  //Stringa
+let result3 = "Il tuo punteggio è:" + 100;  //Stringa
 console.log(typeof result);
 console.log(typeof result2);
 console.log(typeof result3);
