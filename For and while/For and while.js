@@ -13,7 +13,7 @@ for(i = 0; i < nome.length; i++){ //Fino a quando i è < della lunghezza di nome
 //ForOF
 
 for(let lettera of nome){ //Per ogni lettera di nome
-    console.log(`FOROF: questa è la lettera: ${lettera}, numero ${i}`);
+    console.log(`FOROF: questa è la lettera: ${lettera}`);
 }
 
 
@@ -26,14 +26,16 @@ for(let lettera of nome){ //Per ogni lettera di nome
 
 
 let I = 0;
-let = isOnline = true;
 
-// while(I < nome.length){
-//     console.log(I)
 
-//     I++
-// }
+while(I < nome.length){
+    console.log(I)
 
+    I++
+}
+
+
+//Do while
 
 let j = 10;
 
@@ -62,3 +64,11 @@ for ( let colonna = 0; colonna < 8; colonna++) {
         console.log(`Questa è la cella ${riga};${colonna}`)
     }
 } 
+
+
+
+
+
+
+
+
