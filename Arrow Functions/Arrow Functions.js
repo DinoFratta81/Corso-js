@@ -60,6 +60,3 @@ console.log(isEven(2))
 
    //L'hoisting è un comportamento di JavaScript in cui le dichiarazioni di variabili e funzioni vengono spostate in cima al loro contesto di esecuzione durante la fase di compilazione.
    //Ciò significa che è possibile utilizzare una funzione dichiarata prima della sua definizione nel codice, ma non è possibile fare lo stesso con le funzioni arrow, poiché sono assegnate a variabili e non vengono sollevate.
-
-
-   
