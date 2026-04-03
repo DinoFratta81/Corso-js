@@ -5,7 +5,7 @@
 //Esempio
 let fruits = ["Banana", "Cherry", "Peach","Apple"];
 fruits[0] = "Mango" //Cambiare l'elemento alla posizione 0
-fruits[4] = "Pear" // Aggiungo alla posizone 4
+fruits[4] = "Pear" // Aggiungo alla posizione 4, aggiungo perchè la posizione 4 non c'era
 fruits[fruits.length] = "Strawberry" //Aggiungo all'ultimo posto
 console.log(fruits);
 console.log(fruits[0]); // Per accedere al primo elemento dell'array, quello in posizione 0. In js si inizia a contare da 0, quindi il primo elemento è in posizione 0, il secondo in posizione 1 e così via.
@@ -108,7 +108,6 @@ console.log(names);
 
 
 //Ordine numerico crescente
-
 let numbers3 = [20,54,67,12];
 numbers3.sort((a,b) => a - b);
 console.log(numbers3);
@@ -122,7 +121,7 @@ console.log(numbers3);
 
 let schacchiera = [
     [[1,2,3], "a2", "a3", "a4", "a5"], //0
-    ["b1", "b2", "b3", "b4", "b5"],  //!
+    ["b1", "b2", "b3", "b4", "b5"],  //1
     ["c1", "c2", "c3", "c4", "c5"]  //2
 ]
 

@@ -18,6 +18,11 @@ let names = ["vegeta", "erminia", "domenico"];
 let capitalized = names.map(name => name.charAt(0).toUpperCase() + name.slice(1));
 console.log(capitalized);
 
+let names8 = ["loredana", "gianni", "donato"];
+let capitalizzato = names8.map(name =>name.charAt(0).toUpperCase() + name.slice(1));
+console.log(capitalizzato);
+
+
 //filter
 
 let numbers2 = [25,67,80,190];
@@ -26,6 +31,10 @@ let even = numbers2.filter(num =>num % 2 == 0);
 let odd = numbers2.filter(num =>num % 2 == 1);
 console.log(even);
 console.log(odd);
+
+let surnames = ["Marinelli", "Giusti", "Andrea"];
+let filtr = surnames.filter(sur =>sur.startsWith("M"));
+console.log(filtr);
 
 
 let users = [
