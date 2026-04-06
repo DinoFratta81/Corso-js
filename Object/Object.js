@@ -26,7 +26,7 @@ console.log(persona["età"]);
 let sceltaUtente = "indirizzo";
 console.log(persona[sceltaUtente]["cap"]);
 
-//Se la chiave è dinamiche vuol dire che è contenuta in una variabile
+//Se la chiave è dinamica vuol dire che è contenuta in una variabile
 
 let sceltaUtente2 = "città";
 console.log(persona["indirizzo"]["città"]);
@@ -45,5 +45,8 @@ console.log(Object.keys(persona));  //Sono tutte le chiavi
 console.log(Object.entries(persona)); //È un array che ci restituisce degli array con le coppie chiave-valore.
 
 let {nome, cognome} = persona;
+
+console.log(nome);
+console.log(cognome);
 
 //Con questa sintassi stiamo facendo un'operazione chiamata destructuring, che ci permette di estrarre le proprietà di un oggetto e assegnarle a delle variabili con lo stesso nome delle proprietà. In questo caso stiamo creando due variabili nome e cognome che prendono i valori delle proprietà nome e cognome dell'oggetto persona.
