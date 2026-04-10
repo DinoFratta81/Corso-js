@@ -62,3 +62,66 @@ console.log(buy)
 buy.price = 55;
 console.log(buy.price);  //Senza il getter price, non sarebbe possibile accedere al prezzo, perché è stato definito come una proprietà privata (con l'underscore), quindi è necessario utilizzare il getter per accedere al valore del prezzo
 console.log(buy.total);  //Ottenuto con il getter total, che restituisce il prezzo totale, calcolato in tempo reale, quindi se si modifica il prezzo o la quantità, il totale si aggiorna automaticamente, senza dover chiamare un metodo per calcolare il totale ogni volta che si modifica il prezzo o la quantità
+
+
+
+
+class contoBancario{
+    constructor(titolare = "Giovanni" , saldo = 100 , numeroConto = "2324142532"){
+        this.titolare = titolare
+        this.saldo = saldo
+        this.numeroConto = numeroConto 
+    }
+    set titolare(value){
+        if(typeof value != "string" || value =="")
+            throw Error("Errore")
+        this._titolare = value
+    }
+
+     set saldo(value){
+        if(typeof value != "number" || value < 0)
+            throw Error("Errore")
+        this._saldo = value
+    }
+     set numeroConto(value){
+        if(value.length !== 10 || value == "" || !/^\d+$/.test(value))
+            throw Error("Errore")
+        this._numeroConto = value
+    }
+
+    get titolare(){
+        return this._titolare
+    }
+    
+    get saldo(){
+        return this._saldo
+    }
+    
+    get numeroConto(){
+        return this._numeroConto
+    }
+    deposita(importo){
+        if(typeof importo != "number" || importo <= 0)
+            throw Error("Importo non valido")
+        this._saldo += importo
+        return this._saldo
+    }
+
+    preleva(importo){
+        if(typeof importo != "number" || importo > this._saldo)
+            throw Error("Importo non valido")
+        this._saldo -= importo
+        return this._saldo
+    }
+
+}
+
+
+let nuovoTitolare = new contoBancario("Marco", 200, "3433924135");
+console.log(nuovoTitolare._saldo);
+
+let conto = new contoBancario("Fabio", 500, "1234567890");
+
+
+conto.deposita(59);
+console.log(conto);
