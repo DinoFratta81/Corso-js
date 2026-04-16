@@ -13,7 +13,7 @@ class persona { // Persona è il nome della classe, che è un modello per creare
     }
 }
 
-//Con la sintassi constructor  sintassi dico sostanzialmente che ogni volta che creo un oggetto, di default avrà nome: "Dino" e cognome: "Fratta", ma posso anche passare dei valori diversi al momento della creazione dell'istanza, se la classe è stata definita con un costruttore che accetta dei parametri, come in questo caso. In questo modo, se non passo dei valori, l'oggetto avrà i valori di default, altrimenti avrà i valori che ho passato.
+//Con la sintassi constructor dico sostanzialmente che ogni volta che creo un oggetto, di default avrà nome: "Dino" e cognome: "Fratta", ma posso anche passare dei valori diversi al momento della creazione dell'istanza, se la classe è stata definita con un costruttore che accetta dei parametri, come in questo caso. In questo modo, se non passo dei valori, l'oggetto avrà i valori di default, altrimenti avrà i valori che ho passato.
 
 //nome e cognome formano il corpo della classe persona, che è un insieme di proprietà che descrivono una persona
 
