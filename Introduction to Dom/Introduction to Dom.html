@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Dom</title> <!-- Text node -->
+</head>
+
+<body>
+    <h1>Titolo</h1> <!--Text node -->
+    <div id="containter">
+        <p>Primo Paragrafo</p> <!-- Text node -->
+        <p class="special">Secondo Paragrafo</p> <!-- Text node -->
+    </div>
+
+    <figure>
+        <img src="/Images/Screenshot 2026-04-27 184625.png" alt="Rappresentazione del Dom">
+        <figcaption>Rappresentazione del Dom</figcaption>
+    </figure>
+
+
+    <figure>
+        <img src="/Images/Screenshot 2026-04-27 185646.png" alt="Proprietà principali">
+        <figcaption>Proprietà principali</figcaption>
+    </figure>
+
+
+    <h3>Relazioni Familgliari nel dom</h3>
+    <div id="parent"> <!--Genitore(Parent node)-->
+        <p id="firstChild">Primo figlio</p> <!--Figlio(child node)-->
+        <p id="secondChild">Secondo figlio</p> <!--Figlio(child node)-->
+        <span id="thirdChild">Terzo figlio</span> <!--Figlio(child node)-->
+        <!--p e span, che sono allo stesso livello, sono chiamati siblings nodes-->
+        <!--Gli ancestors node è tutto ciò che viene prima il genitore, mentre i descendant nodes sono quelli che vengono dopo i figli-->
+    </div>
+
+
+    <figure>
+        <img src="/Images/Screenshot 2026-04-27 192158.png" alt="Navigazione nell'albero">
+        <figcaption>Navigazione nell'albero</figcaption>
+    </figure>
+
+    <!--Il DOM passa per diversi stati
+<ul>
+    <li>Loading: Il documento sta ancora caricando</li>
+    <li>Interactive: Caricamneto, DOM costruito</li>
+    <li>Complete: Tutto caricato(comprese immagini, CSS, ecc)</li>
+</ul>
+-->
+    <figure>
+        <img src="/Images/Screenshot 2026-04-27 192736.png" alt="Stati DOM">
+        <figcaption>Stati DOM</figcaption>
+    </figure>
+
+
+    <h3>DOMContentLoaded vs window.onload</h3>
+    <ul>
+        <li>DOMContentLoaded: DOM costruito, JS può accedere agli elementi(interactive)</li>
+        <li>window.onload: Tutto caricato(comprese immagini, CSS, ecc)</li>
+        <!--Per la manipolazione DOM, di solito basta aspettare DOMContentLoadad-->
+    </ul>
+
+    <h3>Interfaccie DOM principali</h3>
+    <h4>Node interface</h4>
+    <p>Interfaccia base per tutti i nodi:</p>
+    <ul>
+        <li>nodeType: Tipo di nodo(1=Element, 3=text, ecc)</li>
+        <li>nodeName: Nome del nodo </li>
+        <li>nodeValue: Valore del nodo</li>
+        <li>parentNode, childNodes, firstChild</li>
+    </ul>
+
+
+
+    <h4>Element interface</h4>
+    <p>Estende node per elementi HTML:</p>
+    <ul>
+        <li>tagName: nome del tag</li>
+        <li>attributes: Lista Attributi </li>
+        <li>classList: Gestione classi CSS</li>
+        <li>innerHTML, outerHTML: Contenuto HTML</li>
+        <li>textContent: Solo testo</li>
+    </ul>
+
+    <h4>HtmlElement Interface</h4>
+    <p>Estende Element per elementi HTML specifici:</p>
+    <ul>
+        <li>style: Gestione stili CSS</li>
+        <li>dataset: Attributi data</li>
+        <li>hidden: Nascondere/mostrae un elemento</li>
+    </ul>
+  
+
+    <script src="Introduction to Dom.js"></script>
+</body>
+
+</html>
