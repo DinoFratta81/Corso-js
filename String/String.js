@@ -1,5 +1,5 @@
 let name1 = "Beatrice";  //Virgolette doppie
-let name2 = 'Nora';        //Virgolette singole(apici)
+let name2 = 'Nora';      //Virgolette singole(apici)
 let name3 = `Luigi
 Giacomo
 Bruno
@@ -19,7 +19,7 @@ let text = "JavaScript è stupendo!"
 console.log("===INFORMAZIONI STRINGA===")
 console.log(text);                // Testo
 console.log(text.length);         // Quanto è lungo?
-console.log(text.charAt(1));      // Carattere posizione 1. Non è la j e non a perchè si inizia a contare da 0, quindi il primo posto è 0 non 1
+console.log(text.charAt(1));      // Carattere posizione 1. Non è la j ma è la a perchè si inizia a contare da 0, quindi il primo posto è 0 non 1
 console.log(text.charAt(0));      // Carattere posizione 0. J perchè si conta da 0
 console.log(text.charCodeAt(0));  // Il metedo chatCodeAt serve a restituire il codice Ascii
 
@@ -42,7 +42,6 @@ console.log("Testo Originale:", blackquote);
 console.log("slice(0, 8):", blackquote.slice(0, 8));   //Mi estrae la parte dagli indici 0 e 8 e me la restituisce
 console.log("slice(9, 19):", blackquote.slice(9, 19)); //Mi estrae la parte dagli indici 9 e 19 e me la restituisce
 console.log("slice(-11):", blackquote.slice(-11)); // Parti da -11 caratteri dalla fine e prendi tutto il resto
-console.log("slice(-11):", blackquote.slice(-11)); // Parti da -11 caratteri dalla fine e prendi tutto il resto
 console.log("subString(9, 19):", blackquote.substring(19, 9)); //substring() è “gentile”: se sbagli ordine, li ribalta, slice() invece dice: “inizio > fine? allora niente”.
 //Substring non accetta valori negativi e li rende 0
 
@@ -54,7 +53,7 @@ let originalText = "   Ciao Mondo JavaScript   ";
 console.log("Originale:", `"${originalText}"`);
 console.log("Maiuscolo:", originalText.toUpperCase()); //Maiuscolo
 console.log("Minuscolo:", originalText.toLowerCase()); //Minuscolo
-console.log("Trim(Rimuovi Spazi)", originalText.trim());
+console.log("Trim(Rimuovi Spazi)", originalText.trim()); //Rimuove gli spazi
 
 
 // METODI STRINGA - SOSTITUZIONE E SPLIT

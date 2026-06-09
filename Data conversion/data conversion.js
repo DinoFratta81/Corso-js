@@ -16,7 +16,7 @@ console.log(typeof result2);
 console.log(typeof result3);
 console.log(result3);
 
-//Tutte concatenazioni; quandi quando abbiamo una stringa + un numero o viceversa il rusltato è sempre una stringa per concatenazione
+//Tutte concatenazioni; quandi quando abbiamo una stringa + un numero o viceversa il rusultato è sempre una stringa per concatenazione
 
 let result4 = "6" - "4";
 let result5 = "3" * "12";

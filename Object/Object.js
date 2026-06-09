@@ -9,7 +9,7 @@ let persona = {
     },
     interessi:["Filosofia", "Architettura"],
     segreteria: function(){
-        return `Ciao sono ${this.nome} ${this.nome}, lasciate un messaggio!`
+        return `Ciao sono ${this.nome} ${this.cognome}, lasciate un messaggio!`
     },
 }
 //Con "this" facciamo riferimento all'oggetto stesso, in questo caso persona, quindi this.nome è uguale a persona.nome, this.cognome è uguale a persona.cognome e così via.

@@ -1,22 +1,22 @@
 console.log('Prima Prova JS')
 alert('Iniziamo!')
 
-// let firstNumber = 50;
-// let secondNumber = 20;
-// let operation = "add"
+let firstNumber = 50;
+let secondNumber = 20;
+let operation = "add"
 
-// console.log("CALCOLATRICE SEMPLICE")
-// console.log(`Primo numero: ${firstNumber}`)
-// console.log(`Secondo Numero: ${secondNumber}`)
-// console.log(`operazione ${operation}`)
+console.log("CALCOLATRICE SEMPLICE")
+console.log(`Primo numero: ${firstNumber}`)
+console.log(`Secondo Numero: ${secondNumber}`)
+console.log(`operazione ${operation}`)
 
-// let result;
-// if (operation === "add") {
-//     result= firstNumber+ secondNumber;
-//     console.log(`Risultato: ${firstNumber} + ${secondNumber} = ${result}`)
-//     } else {
-//         console.log("Operazione non supportata")
-//     }
+let result;
+if (operation === "add") {
+    result= firstNumber + secondNumber;
+    console.log(`Risultato: ${firstNumber} + ${secondNumber} = ${result}`)
+    } else {
+        console.log("Operazione non supportata")
+    }
 
 let nome = "Dino"; // inizializzazione
 

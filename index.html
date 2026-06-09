@@ -1,23 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prima prova Javascript</title>
     <link rel="icon" href="favicon3.ico" type="image/x-icon">
+    <style>
+        #container {
+            display: grid;
+            background-color: rgba(20, 13, 164, 0.268);
+            border: 1px solid black;
+            -webkit-box-shadow: -34px -19px 26px 8px rgba(32, 18, 112, 0.31);
+            box-shadow: -34px -19px 26px 8px rgba(32, 18, 112, 0.31);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a:visited {
+            color: rgba(14, 12, 169, 0.252);
+        }
+
+        .container-item {
+            display: flex;
+            flex-direction: column;
+            background-color: blue;
+            border-radius: 20px;
+            margin: 15px;
+            padding: 15px;
+            text-align: center;
+            -webkit-box-shadow: inset 23px 26px 26px 13px #080F5E;
+            box-shadow: inset 23px 26px 26px 13px #080F5E;
+        }
+
+        #Lista {
+            color: blue;
+            text-align: center;
+        }
+
+        #Lista::after {
+            content: "👇";
+        }
+
+        #Lista::before {
+            content: "👇";
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
     <!-- <button onclick="alert('ciao')">Bella</button> -->
-      <!-- <script>
+    <!-- <script>
         alert('Prima prova')
     </script> (ai può scrive codice java in linea con il codice come nel bottone
     oppure così nel tag dentro html o con file esterno come css) -->
 
     <script src="index.js"></script>
-    <p>Check the console!</p>
-    <a href="Data Types/Data Types.html">Vai a Data Types</a>
+    <h1>Check the console!</h1>
+    <p id="Lista">List of lessons below</p>
+    <div id="container">
+        <a href="Data Types/Data Types.html" class="container-item" title="Data Types">Vai a Data Types</a>
+        <a href="/Array metods/Array metods.html" class="container-item" title="Array Metods">Array Metods</a>
+        <a href="/Array/Array.html" class="container-item" title="Array">Array</a>
+        <a href="/Arrow Functions/Arrow Functions.html" class="container-item" title="Arrow Functions">Arrow Functions</a>
+        <a href="Boolean/Boolean.html" class="container-item" title="Boolean">Boolean</a>
+        <a href="Conditional if/Conditional if.html" class="container-item" title="Conditional If">Conditional If</a>
+        <a href="Data conversion/data conversion.html" class="container-item" title="Data conversion">Data conversion</a>
+        <a href="Destructuring, rest and spread operators/Destructuring, rest and spread operators.html"
+            class="container-item" title="Destructuring, rest and spread operators">Destructuring, rest and spread operators</a>
+        <a href="For and while/For and while.html" class="container-item" title="For and while">For and while</a>
+        <a href="Functions/Functions.html" class="container-item" title="Functions">Functions</a>
+        <a href="Introduction to Dom/Introduction to Dom.html" class="container-item" title="Introduction to Dom">Introduction to Dom</a>
+        <a href="Logical operators/Logical operators.html" class="container-item" title="Logical operators">Logical operators</a>
+        <a href="Numbers/Numbers.html" class="container-item" title="Numbers">Numbers</a>
+        <a href="Object-oriented programming/Object-oriented programming.html" class="container-item" title=" Object-oriented
+            programming">Object-oriented
+            programming</a>
+        <a href="Object/Object.html" class="container-item" title="Object">Object</a>
+        <a href="Static Metods/Static Metods.html" class="container-item" title="Static metods">Static metods</a>
+        <a href="String/String.html" class="container-item" title="String">String</a>
+    </div>
 
-  
-</form>
+
+
+    </form>
 </body>
+
 </html>

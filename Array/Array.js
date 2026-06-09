@@ -43,7 +43,7 @@ console.log(items);
 let numbers = [10, 20, 30, 20, 40];
 
 console.log(numbers.indexOf(20)); //1, perchè ci da la prima posizione
-console.log(numbers.lastIndexOf(20)); // 2, perchè ci da l' ultima posizione
+console.log(numbers.lastIndexOf(20)); // 3, perchè ci da l' ultima posizione
 console.log(numbers.indexOf(50)); // -1, non trovato
 console.log(numbers.indexOf(20, 2)); // 3 perchè inizia a contare da 2 
 
