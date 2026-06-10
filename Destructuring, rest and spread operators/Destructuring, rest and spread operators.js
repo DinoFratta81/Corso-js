@@ -27,7 +27,7 @@ let obj1 = {
 let {name : fullName, age, country = "Italy", address, address:{city, street}} = obj1;
 
 //Il valore nell'oggetto è Netherland, quindi country sarà Netherland e non Italy, che è il valore predefinito. Se country non fosse stato presente nell'oggetto, allora avrebbe preso il valore predefinito Italy.
-//Questo per dire che il valore nell'oggetto ha la precedenza sul valore predefinito.
+//Questo per dire che il valore nell'oggetto ha la precedenza sul valore che gli diamo.
 
 console.log(country);
 console.log(fullName); //Prima ho detto che name diventava fullName, quindi ora fullName è Fabio.

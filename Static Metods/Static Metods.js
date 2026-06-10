@@ -22,6 +22,10 @@ console.log(user1);
 console.log(user2);
 console.log(User.numeroUtenti);
 
+
+
+
+
 class Product{
     static totalProducts = 0;
 

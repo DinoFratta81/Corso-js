@@ -80,7 +80,7 @@ let ages = [
 ];
 
 let minori = ages.some(person => person.age < 18);
-let maggiorenni = ages.every(person =>  typeof person == "object");
+let maggiorenni = ages.every(person => typeof person == "object");
 console.log(minori);
 console.log(maggiorenni);
 
