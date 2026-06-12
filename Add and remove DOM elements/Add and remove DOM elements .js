@@ -1,11 +1,11 @@
 let container = document.getElementById("container"); 
-// container.innerHTML = "ciao"; //Sostituisce tutto il contenuto
-container.innerHTML += "asfaf"; // Aggiunge al contenuto già presente
+container.innerHTML += "asfaf"; // Aggiunge al contenuto già presente.
+// container.innerHTML = "ciao"; //Sostituisce tutto il contenuto.  È commentato solo perchè avrebbe creato casini
 container.innerHTML += "<p>Ciao</p>"
 container.innerHTML += "<input type = 'text' placeholder = 'seleziona il tuo pease'>"  //Aggiunge un tag html, infatti possiamo aggiunere un qualsiasi tag html.
 let prova = document.querySelector("p.ciao");
-prova.textContent = "Buonasera"; // Sostituisce solo il test., 
-console.log(prova.textContent); // Console solo il testo, senza tag html
+prova.textContent = "Buonasera"; // Sostituisce solo il testo. 
+console.log(prova.textContent); // Mostra solo il testo, senza tag html.
 
 let albero = document.querySelector("p.albero");
 console.log(albero.textContent); // Mostra tutto
@@ -32,4 +32,16 @@ container.removeChild(p);  // Rimuove un elemento figlio da un elemento padre.
 
 let p1 = document.querySelector("button.prova");
 p1.remove(); // Rimuove un elemento dal DOM, non è necessario specificare il padre, ma è necessario selezionare l'elemento da rimuovere.
+
+
+let container2 = document.getElementById("contenitore");
+// container2.innerHTML = "<p>Favola</p>";
+container2.innerHTML += "Fiaba";
+let p2 = document.createElement("p");
+p2.textContent = "Sono nuovo";
+p2.classList.add("Ciao");
+container2.appendChild(p2);
+container2.insertBefore(p2, document.getElementById("Gatto"));
+console.log(document.getElementById("Gatto").parentElement); // parentElement restituisce l'elemento padre di un elemento specificato.
+
 
