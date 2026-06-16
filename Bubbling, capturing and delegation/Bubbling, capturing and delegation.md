@@ -104,9 +104,9 @@ document.getElementById("child").addEventListener("click", () => {
 ```
 
 
-## Controllare la Propagazione
+# Controllare la Propagazione
 
-# stopPropagation()
+## stopPropagation()
 
 *Ferma completamente la propagazione (bubbling o capturing):*
 
@@ -121,7 +121,7 @@ document.getElementById("parent").addEventListener("click", () => {
 });
 ```
 
-*Quindi il parent non riceverà mai l'evento. Il fatto è che stopPropagation() ferma la propagazione solo per l'elemento corrente, non per gli altri elementi. Quindi stoppiamo quell'evento e basta.*
+*Quindi il parent non riceverà mai l'evento. Il fatto è che stopPropagation() ferma la propagazione solo per l'evento corrente, non per gli altri eventi. Quindi stoppiamo quell'evento e basta.*
 
 
 ##  stopImmediatePropagation()
@@ -140,13 +140,79 @@ document.getElementById("parent").addEventListener("click", () => {
 
 ```
 
-*Con stopImmediatePropagation() fermiano qualsiasi cosa tranne chi sta ascoltando e sta generando immediate propagation.
+*Con stopImmediatePropagation() fermiano qualsiasi cosa tranne chi sta ascoltando e sta generando immediate propagation.*
+
+
+### Esempi per un confondersi:
+
+
+**stopPropagation**
+
+
+```
+btn.addEventListener("click", e => {
+    console.log("Listener 1");
+    e.stopPropagation();
+});
+
+btn.addEventListener("click", e => {
+    console.log("Listener 2");
+});
+
+```
+
+Output:
+```
+Listener 1
+Listener 2
+```
+
+*👉 I listener sullo stesso elemento continuano, ma l’evento non sale ai parent.*
 
 
 
-## Event Delegation - Il pattern FOndamentale
+**stopImmediatePropagation:**
 
-# IL Problema Senza Delegation
+
+```
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", e => {
+    console.log("Listener 1");
+    e.stopImmediatePropagation(); // BLOCCA TUTTO
+});
+
+btn.addEventListener("click", e => {
+    console.log("Listener 2");
+});
+
+btn.addEventListener("click", e => {
+    console.log("Listener 3");
+});
+
+```
+
+*Output quando clicchi il bottone:*
+
+```
+Listener 1
+
+```
+
+*E basta.*
+
+- Listener 2 NON parte
+
+- Listener 3 NON parte
+
+- Il bubbling NON parte
+
+
+
+
+# Event Delegation - Il pattern Fondamentale
+
+## IL Problema Senza Delegation
 
 ```
 // ❌ Problema : devi aggiungere listener ad ogni elemento
@@ -186,9 +252,9 @@ document.getElementById("container").addEventListener("click", (e) => {
 # Come funziona la Delegation
 
 *1. **Bubbling**: L'evento dal bottone "bolle verso il container*
-*2. **Intercettazione**: Il listener sul container "cattura l'evento*
-*3. **Filtraggio**: Controlliamo se ``` e.target è l'evento che volgiamo```*
-*3. **Azione**: Eseguiamo il codice aprropriato*
+*2. **Intercettazione**: Il listener sul container "cattura" l'evento*
+*3. **Filtraggio**: Controlliamo se ``` e.target è l'evento che vogliamo```*
+*4. **Azione**: Eseguiamo il codice aprropriato*
 
 
 ## Vantaggi dell'Event Delegation

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events and Validation</title>
+    <style>
+        label {
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 15px;
+            margin-top: 15px;
+            box-sizing: border-box;
+            padding: 10px;
+            width: 400px;
+        }
+
+        input:invalid {
+            border-color: red;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+
+
+        .bottoni {
+            display: flex;
+            flex-direction: row;
+        }
+
+        button {
+            background-color: green;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 13px;
+            margin-bottom: 10px;
+            box-sizing: content-box;
+            gap: 13px;
+            margin-top: 20px;
+            width: 50%;
+            white-space: nowrap;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="loginForm">
+        <div id="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Inserisci la tua Email">
+        </div>
+
+        <div id="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Inserisci la tua Password">
+        </div>
+        <div class="bottoni">
+            <button type="submit">Login con FormData</button>
+            <button type="button" id="directAccess">Login con Accesso Diretto</button>
+        </div>
+    </form>
+
+
+
+    <div id="result"></div>
+    <script src="Form Events and Validation.js"></script>
+    <a href="/index.html"></a>
+</body>
+
+</html>
