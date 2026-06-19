@@ -1,0 +1,42 @@
+{
+  "id": 123,
+  "name": "Carlo Buoni",
+  "age": 12,
+  "isActive": false,
+  "email": null,
+  "address": {
+    "street": "Via Bazoer 87",
+    "city": "Antananarivo",
+    "zipCode": "30918",
+    "country": "Madagascar"
+  },
+  "hobbies": [
+    {
+    "name": "Cucina",
+    "level": "Expert"
+    },
+    {
+    "name": "Padel", 
+    "level": "beginner" 
+    },
+    {
+    "name": "Nuoto", 
+    "level": "Intermediate"
+   }
+  ],
+  "languages": ["Italiano", "Giapponese", "Inglese", "Spagnolo", "Francese"],
+  "score": 93.5,
+  "loginCount": 95,
+  "preferences": {
+    "theme": "dark",
+    "notifications": {
+      "email": true,
+      "push": false,
+      "sms": null
+    },
+    "privacy": {
+      "prifileVisible": true,
+      "showEmail": false
+    }
+  }
+}

@@ -20,15 +20,17 @@ sessionStorage.setItem("nomesessione", "azmun");
 
 console.log("Leggo da session:", sessionStorage.getItem("nomesessione"));
 
-sessionStorage.removeItem("nomesessione");
-localStorage.clear();
+sessionStorage.removeItem("nomesessione"); //rimuove un elemento specifico
+localStorage.clear();     //rimuove tutto
+
+
 
 //---
 
 
 const persona = { name : "Gianni", age: 76 };
 
-localStorage.setItem("persona", JSON.stringify(persona));
+localStorage.setItem("persona", JSON.stringify(persona)); //JSON.stringify converte un oggetto in una stringa JSON, che può essere memorizzata nel localStorage
 
 
 //È come se faccessimo:
@@ -37,7 +39,7 @@ localStorage.setItem("persona", JSON.stringify(persona));
 
 
 
-console.log(JSON.parse(localStorage.getItem("persona")));
+console.log(JSON.parse(localStorage.getItem("persona")));  //JSON.parse converte una stringa JSON in un oggetto JavaScript, che può essere utilizzato nel codice.
 
 
 //Modificare un elemento:
