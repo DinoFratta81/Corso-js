@@ -8,7 +8,7 @@ form.addEventListener("submit", function (e) {
     console.log("Submit BLOCCATO");
 
 
-    //Previene di inviare il form, in generale, prevemtDefault blocca il comportamento di default dell'evento, in questo caso l'invio del form.
+    //Previene di inviare il form, in generale, preventDefault blocca il comportamento di default dell'evento, in questo caso l'invio del form.
 
     let formData = new FormData(form);   // Crea un oggetto FormData che contiene i dati del form, passando il form come argomento e gli dico di prendere i dati da quel form specifico tra parentesi.
     let email = formData.get("email");  // Ottiene il valore del campo "email" dal formData usando il metodo get, questo grazie al name="email" che abbiamo messo nell'input del form
@@ -22,7 +22,7 @@ form.addEventListener("submit", function (e) {
 
 
 directAccessBtn.addEventListener("click", function (e) {
-    let email = form.email.value;  // Accede direttamente al valore del campo "email" usando la proprietà name dell'input, in questo caso form.email.value
+    let email = form.email.value;  //Sto dicendo di prendere il valore dell'input con name="email" all'interno del form e assegnarlo alla variabile email
     let password = form.password.value;
 
 
@@ -48,7 +48,7 @@ function validateData(email, password) {
 
 
 function showError(field, message) {
-    let formField = form.elements[field];
+    let formField = form.elements[field];  // Seleziona l'elemento del form corrispondente al campo specificato (email o password)
     resultDiv.textContent = message;
     formField.style.borderColor = "red";
 }

@@ -1,0 +1,51 @@
+//Sono:
+// Local storage → preferenze utente (tema, lingua, ecc.), persistono anche dopo la chiusura del browser
+// Session storage → dati temporanei finché la scheda è aperta (es: step di un form, stato della pagina)
+// cookie
+// indexedDB (no sql)
+// cache API
+
+
+localStorage.setItem("chiave", "valore");
+localStorage.setItem("nome", "gary");
+
+
+sessionStorage.setItem("nomesessione", "gary");
+
+console.log("Leggo da local:", localStorage.getItem("nome"));
+
+
+sessionStorage.setItem("nomesessione", "azmun");
+
+
+console.log("Leggo da session:", sessionStorage.getItem("nomesessione"));
+
+sessionStorage.removeItem("nomesessione");
+localStorage.clear();
+
+//---
+
+
+const persona = { name : "Gianni", age: 76 };
+
+localStorage.setItem("persona", JSON.stringify(persona));
+
+
+//È come se faccessimo:
+
+// const personaStringata = `{name : "Gianni", age: 76}`;
+
+
+
+console.log(JSON.parse(localStorage.getItem("persona")));
+
+
+//Modificare un elemento:
+
+const temp = JSON.parse(localStorage.getItem("persona"));
+
+
+temp.name = "Gianniiiiiiiii";
+
+console.log(temp);
+localStorage.setItem("persona", JSON.stringify(temp));

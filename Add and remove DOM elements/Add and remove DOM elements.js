@@ -1,8 +1,8 @@
-let container = document.getElementById("container"); 
-container.innerHTML += "asfaf"; // Aggiunge al contenuto già presente.
-// container.innerHTML = "ciao"; //Sostituisce tutto il contenuto.  È commentato solo perchè avrebbe creato casini
-container.innerHTML += "<p>Ciao</p>"
-container.innerHTML += "<input type = 'text' placeholder = 'seleziona il tuo pease'>"  //Aggiunge un tag html, infatti possiamo aggiunere un qualsiasi tag html.
+// let container = document.getElementById("container"); 
+// container.innerHTML += "asfaf"; // Aggiunge al contenuto già presente.
+// // container.innerHTML = "ciao"; //Sostituisce tutto il contenuto.  È commentato solo perchè avrebbe creato casini
+// container.innerHTML += "<p>Ciao</p>"
+// container.innerHTML += "<input type = 'text' placeholder = 'seleziona il tuo pease'>"  //Aggiunge un tag html, infatti possiamo aggiunere un qualsiasi tag html.
 let prova = document.querySelector("p.ciao");
 prova.textContent = "Buonasera"; // Sostituisce solo il testo. 
 console.log(prova.textContent); // Mostra solo il testo, senza tag html.
@@ -36,7 +36,7 @@ p1.remove(); // Rimuove un elemento dal DOM, non è necessario specificare il pa
 
 let container2 = document.getElementById("contenitore");
 // container2.innerHTML = "<p>Favola</p>";
-container2.innerHTML += "Fiaba";
+// container2.innerHTML += "Fiaba";
 let p2 = document.createElement("p");
 p2.textContent = "Sono nuovo";
 p2.classList.add("Ciao");
