@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 
 let userData = {
@@ -78,6 +79,6 @@ console.log(obj.age);  // 12
 
 //Per importare data json in JS uso:
 
-// import data from "./index.json" assert { type: "json" };
-
-// console.log(data.name);
+fetch("./index.json")
+  .then(res => res.json())
+  .then(data => console.log(data.name));
