@@ -44,8 +44,7 @@ async function getPokemon(nome) {
 
 }
 
-getPokemon(`bulbasaur`);
-
+getPokemon(`pikachu`);
 
 
 

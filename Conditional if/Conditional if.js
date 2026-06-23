@@ -69,4 +69,4 @@ switch (day){
 let hasPurchased = true;
 let buttonLabel = hasPurchased ? "vai al corso" : "aggiungi al carrello";
 console.log(buttonLabel);
-//Il ternary operator serve a  restituirci un valore, non si può eseguire codice; ? sarebbe se e ":" sarebbe altrimenti
+//Il ternary operator serve a restituirci un valore, non si può eseguire codice; ? sarebbe se e ":" sarebbe altrimenti

@@ -1,5 +1,4 @@
- # Event bubbling e delegation
-
+# Event bubbling e delegation
 
 ## Cos'è l'Event Propagation
 
@@ -7,29 +6,29 @@
 
 ## Le tre fasi dell'Event Propagation
 
- # 1. Capturing Phase(Discesa)
+# 1. Capturing Phase(Discesa)
 
 *L'evento parte dal ``` Document ```  e scende verso l' elemento target attarverso tutti i suoi antenati:*
 
-```Document → HTML → Body → Container → Target Element ```
+```Document → HTML → Body → Container → Target Element```
 
 *Per esempio quando clicchiamo su un bottone, si parte dal document e poi si scende verso il target, passando da tutti contenitori possibili.*
 
- # 2. Target Phase (Target)
+# 2. Target Phase (Target)
 
 *L'evento raggiunge l'elemento che lo ha scatenato (target).*
 
 # 3. Bubbling Phase (Risalita)
+
 *L'evento "risale" dall'elemento target verso il ``` docuement ``` attarverso tutti i suoi nodi antenati:*
 
-```Target Element → Container → Body → HTML → Document ```
-
+```Target Element → Container → Body → HTML → Document```
 
 ## Event Bubbling - La Fase Più Comune
 
 *Il **bubbling** è il comportamento di defualt. L'evento "bolle" verso l'alto come una bolla d'aria nell'acqua.*
 
-``` 
+```
     <div id="grandparent">
         <div id="parent">
             <button id="child">
@@ -65,7 +64,6 @@ document.getElementById("child").addEventListener("click", () => {
 
 ```
 
-
 # Perchè il bubbling esiste?
 
 *Il bubbling è **utile** perchè:*
@@ -73,8 +71,7 @@ document.getElementById("child").addEventListener("click", () => {
 - *Permette agli elementi genitori di "sapere" cosa succede ai figli*
 - *Consente pattern come l' **event delegation***
 
-
-## Event Capturing 
+## Event Capturing
 
 *Il **capturing** è l'opposto del bubbling. L'evento scende dall'alto verso il target.*
 
@@ -103,7 +100,6 @@ document.getElementById("child").addEventListener("click", () => {
 // 3. Child (Target)
 ```
 
-
 # Controllare la Propagazione
 
 ## stopPropagation()
@@ -123,8 +119,7 @@ document.getElementById("parent").addEventListener("click", () => {
 
 *Quindi il parent non riceverà mai l'evento. Il fatto è che stopPropagation() ferma la propagazione solo per l'evento corrente, non per gli altri eventi. Quindi stoppiamo quell'evento e basta.*
 
-
-##  stopImmediatePropagation()
+## stopImmediatePropagation()
 
 *Ferma la propagazione e gli altri listner sullo stesso elemento:*
 
@@ -142,12 +137,9 @@ document.getElementById("parent").addEventListener("click", () => {
 
 *Con stopImmediatePropagation() fermiano qualsiasi cosa tranne chi sta ascoltando e sta generando immediate propagation.*
 
-
-### Esempi per un confondersi:
-
+### Esempi per un confondersi
 
 **stopPropagation**
-
 
 ```
 btn.addEventListener("click", e => {
@@ -162,6 +154,7 @@ btn.addEventListener("click", e => {
 ```
 
 Output:
+
 ```
 Listener 1
 Listener 2
@@ -169,10 +162,7 @@ Listener 2
 
 *👉 I listener sullo stesso elemento continuano, ma l’evento non sale ai parent.*
 
-
-
 **stopImmediatePropagation:**
-
 
 ```
 const btn = document.querySelector("button");
@@ -206,9 +196,6 @@ Listener 1
 - Listener 3 NON parte
 
 - Il bubbling NON parte
-
-
-
 
 # Event Delegation - Il pattern Fondamentale
 
@@ -253,9 +240,8 @@ document.getElementById("container").addEventListener("click", (e) => {
 
 *1. **Bubbling**: L'evento dal bottone "bolle verso il container*
 *2. **Intercettazione**: Il listener sul container "cattura" l'evento*
-*3. **Filtraggio**: Controlliamo se ``` e.target è l'evento che vogliamo```*
+*3. **Filtraggio**: Controlliamo se ```e.target è l'evento che vogliamo```*
 *4. **Azione**: Eseguiamo il codice aprropriato*
-
 
 ## Vantaggi dell'Event Delegation
 
@@ -303,9 +289,6 @@ setTimeout(() => {
 }, 2000);
 ```
 
-
-
 # 3.Memoria
 
 *Un solo listener invece di memoria significa meno utilizzo di memoria.*
-

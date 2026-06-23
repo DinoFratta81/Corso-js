@@ -1,11 +1,16 @@
 // //Sintassi:
+// eslint-disable-next-line no-undef
 () => expression  //Nessun parametro
+// eslint-disable-next-line no-undef
 x => expression  //Un paramentro (parentesi opzionali)
+    // eslint-disable-next-line no-unexpected-multiline, no-undef
     (x, y) //=> (non deve essere commentato)=> expression  //Più parametri (parentesi obbligatoria)
+// eslint-disable-next-line no-undef, no-unused-vars
 x => { statments; return value; } //Corpo con più righe
 
 //Esempio
 () => 2 + 2 //Parentesi obbligatorie se non abbiamo paramentri da mettere
+// eslint-disable-next-line no-unused-vars
 x => 2 + 2  //Se abbiamo un solo parametro
 
 
@@ -13,6 +18,7 @@ x => 2 + 2  //Se abbiamo un solo parametro
 
 x => x * 2 //Return implicito; io voglio questo risultato e si capisce da come scrivo la funzione
 x => { return x * 2; }  //Return esplicito, gli diciamo cosa deve fare
+// eslint-disable-next-line no-undef
 () => ({ prop: value })  //Return oggetto, parentesi extra
 
 
@@ -56,6 +62,7 @@ console.log(isEven(2))
 
    console.log(multiply(2, 4));
 
+   // eslint-disable-next-line no-useless-assignment
    let multiply = (a, b) => a * b;
 
    //L'hoisting è un comportamento di JavaScript in cui le dichiarazioni di variabili e funzioni vengono spostate in cima al loro contesto di esecuzione durante la fase di compilazione.
