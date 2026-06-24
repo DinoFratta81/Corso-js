@@ -1,3 +1,5 @@
+ 
+ 
 /* eslint-disable no-unused-vars */
 //Da:
 function somma(a, b) {
@@ -83,14 +85,12 @@ const prodotti = [
 
 const raggruppa = (acc, prodotto) => {
     const categoria = prodotto.categoria
-
-    if (!acc[categoria]) { //Se non esiste l'accomulatore della categoria...
-        acc[categoria] = 0;  //sarà uguale a 0
+    if (!acc[categoria]) {
+        acc[categoria] = 0;
     }
 
-    acc[categoria] += prodotto.prezzo //L'accomulatore della categoria sarà uguale a sè stesso più il prezzo del singolo prodotto
 
-
+    acc[categoria] += prodotto.prezzo;
     return acc
 }
 
@@ -99,6 +99,127 @@ let somma2 = prodotti.reduce(raggruppa, {});
 console.log(somma2);
 
 
+//--- Cicli for e while
+
+for (let i = 0; i < 4; i++) {
+    console.log(i);
+}
+
+let i = 0; // 1. inizializzo la variabile
+
+while (i <= 3) { // 2. condizione
+    console.log(i); // 3. azione
+    i++;            // 4. incremento
+}
 
 
 
+const nomi = ["Dino", "Marco", "Luca"];
+
+for (i = 0; i < nomi.length; i++) {
+    console.log(nomi[i]);
+
+    while (i < nomi.length) {
+        console.log(nomi[i]);
+        i++;
+    }
+}
+
+for (i = 0; i <= 10; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+
+const nomi2 = ["Dino", "Marco", "Luca", "Sara"];
+
+
+for (i = 0; i < nomi2.length; i++) {
+    console.log(`"For:", Questo è l'elemento all indice ${i}: ${nomi2[i]}`);
+}
+
+
+
+i = 0;
+
+while (i < nomi2.length) {
+    console.log("While", i, nomi2[i]);
+    i++;
+}
+
+
+const numeri4 = [12, 5, 8, 130, 44, 9, 2];
+
+let conteggio = 0;
+
+for (let i = 0; i < numeri4.length; i++) {
+    if (numeri4[i] > 10) {
+        console.log(numeri4[i]);
+        conteggio++
+    }
+}
+
+i = 0;
+while (i < numeri4.length) {
+    if (numeri4[i] % 2 === 0) {
+        console.log(numeri4[i])
+        conteggio++
+    }
+    i++
+}
+
+
+console.log(`Totale numeri stampati: ${conteggio}`);
+
+
+const valori = [3, 18, 7, 22, 5, 11, 40, 1];
+
+
+conteggio = 0;
+
+for (i = 0; i < valori.length; i++) {
+    if (valori[i] < 10) {
+        console.log(valori[i]);
+        conteggio++
+    }
+}
+
+i = 0;
+while (i < valori.length) {
+    if (valori[i] % 5 === 0) {
+        console.log(valori[i])
+        conteggio++;
+    }
+    i++
+}
+
+console.log(`Totale conteggio2:  ${conteggio}`);
+
+
+const voti = [10, 4, 7, 5, 3, 8, 6, 9];
+
+
+for (let i = 0; i < voti.length; i++) {
+  const voto = voti[i];
+
+  switch (true) {
+    case voto === 10:
+      console.log(i, voto, "→ Eccellente");
+      break;
+
+    case voto === 9 || voto === 8:
+      console.log(i, voto, "→ Ottimo");
+      break;
+
+    case voto === 7 || voto === 6:
+      console.log(i, voto, "→ Buono");
+      break;
+
+    case voto === 5:
+      console.log(i, voto, "→ Sufficiente");
+      break;
+
+    default:
+      console.log(i, voto, "→ Insufficiente");
+  }
+}
