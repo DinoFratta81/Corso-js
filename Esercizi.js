@@ -1,3 +1,6 @@
+"use strict";
+
+// @ts-check
 
 //Da:
 function somma(a, b) {
@@ -417,26 +420,90 @@ function descriviStudenti() {
 console.log(descriviStudenti(6));
 
 
-const auto = {
-    marca: "BMW",
-    modello: "M3",
-    velocita: 0,
-    accelera() {
-        this.velocita += 10
+const auto = [
+    {
+        marca: "BMW",
+        modello: "M3",
+        velocita: 0,
+        accelera() {
+            this.velocita += 10
+        },
+        frena() {
+            this.velocita -= 10;
+        },
+        descriviAuto() {
+            console.log(`Auto ${this.marca}, ${this.modello}, va  a ${this.velocita} km/h.`);
+        }
     },
-    frena() {
-        this.velocita -= 10;
-    },
-    descriviAuto() {
-       console.log(`Auto ${this.marca}, ${this.modello}, va ${this.velocita}`);
+
+    {
+        marca: "Audi",
+        modello: "RS6",
+        velocita: 0,
+        accelera() {
+            this.velocita += 20
+        },
+        frena() {
+            this.velocita -= 15;
+        },
+        descriviAuto() {
+            console.log(`Auto ${this.marca}, ${this.modello}, va  a ${this.velocita} km/h.`);
+        }
     }
+];
+
+
+
+for (let i = 0; i < auto.length; i++) {
+    auto[i].accelera();
+    auto[i].accelera();
+    auto[i].descriviAuto();
+}
+
+
+
+const studenti1 = [
+    {
+        nome: "Dino",
+        voto: 8,
+        promosso: true,
+        descrivi() {
+            console.log(`Studente : ${this.nome}, voto: ${this.voto}, promosso = ${this.promosso}.`)
+        },
+        miglioraVoto() {
+            this.voto++
+        },
+    },
+    {
+        nome: "Pilaf",
+        voto: 4,
+        promosso: false,
+        descrivi() {
+            console.log(`Studente : ${this.nome}, voto: ${this.voto}, promosso = ${this.promosso}.`)
+        },
+        miglioraVoto() {
+            this.voto++
+        },
+    },
+
+    {
+        nome: "Ernesto",
+        voto: 7,
+        promosso: true,
+        descrivi() {
+            console.log(`Studente : ${this.nome}, voto: ${this.voto}, promosso = ${this.promosso}.`)
+        },
+        miglioraVoto() {
+            this.voto++
+        },
+    }
+
+];
+
+for (let i = 0; i < studenti1.length; i++) {
+    if (studenti1[i].voto < 6) {
+        studenti1[i].miglioraVoto();
+    }
+
+    studenti1[i].descrivi();
 };
-
-
-
-auto.accelera();
-auto.accelera();
-auto.descriviAuto();
-
-auto.frena();
-auto.descriviAuto();
