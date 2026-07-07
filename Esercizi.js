@@ -1,6 +1,3 @@
-"use strict";
-
-// @ts-check
 
 //Da:
 function somma(a, b) {
@@ -312,7 +309,7 @@ for (let i = 0; i < colori.length; i++) {
 }
 
 // Differenza tra switch con true e switch con key(colore nel caso sopra):
-// Nel primo caso, il switch valuta espressioni booleane e può gestire condizioni più complesse, mentre nel secondo caso, il switch confronta direttamente il valore della variabile con i casi specifici.
+// Nel primo caso, il switch true valuta espressioni booleane e può gestire condizioni più complesse, mentre nel secondo caso, il switch key confronta direttamente il valore della variabile con i casi specifici.
 
 
 
@@ -507,3 +504,152 @@ for (let i = 0; i < studenti1.length; i++) {
 
     studenti1[i].descrivi();
 };
+
+
+const studenti2 = [
+    { nome: "Dino", voto: 9 },
+    { nome: "Marco", voto: 6 },
+    { nome: "Luca", voto: 4 }
+];
+
+studenti2.forEach(stud => {
+    stud.nome
+    stud.voto
+
+    let messaggio;
+
+    if (stud.voto >= 8) {
+        messaggio = "Ottimo"
+    }
+    else if (stud.voto >= 6) {
+        messaggio = "Sufficiente"
+    }
+    else {
+        messaggio = "Insufficiente"
+    }
+
+    console.log(`${stud.nome} ha voto ${stud.voto} = ${messaggio}`);
+});
+
+
+
+const prodotti2 = [
+    { nome: "Mouse", prezzo: 15 },
+    { nome: "Tastiera", prezzo: 45 },
+    { nome: "Monitor", prezzo: 120 },
+    { nome: "Cuffie", prezzo: 25 }
+];
+
+
+prodotti2.forEach(prod => {
+    let categoria;
+    if (prod.prezzo <= 30) {
+        categoria = "Economico"
+    }
+    else if (prod.prezzo <= 80) {
+        categoria = "Medio"
+    }
+    else {
+        categoria = "Costoso"
+    }
+
+
+    console.log(`${prod.nome} costa  ${prod.prezzo} = ${categoria}`)
+});
+
+
+const personaggi = [
+    {
+        nome: "Fabio",
+        energia: 100,
+        attacca() {
+            this.energia -= 10;
+        },
+        descrivi() {
+            console.log(`${this.nome} ha ${this.energia} energia.`);
+        }
+    },
+
+    {
+        nome: "Fabrizio",
+        energia: 500,
+        attacca() {
+            this.energia -= 35;
+        },
+        descrivi() {
+            console.log(`${this.nome} ha ${this.energia} energia.`);
+        }
+    },
+        {
+        nome: "Ingrid",
+        energia: 80,
+        attacca() {
+            this.energia -= 6;
+        },
+        descrivi() {
+            console.log(`${this.nome} ha ${this.energia} energia.`);
+        }
+    },
+];
+
+
+personaggi.forEach(pg =>{
+    pg.descrivi()
+    pg.attacca()
+    pg.attacca()
+    pg.descrivi()
+});
+
+
+const prodotti3 = [
+  { nome: "Mouse", prezzo: 15 },
+  { nome: "Tastiera", prezzo: 45 },
+  { nome: "Monitor", prezzo: 120 },
+  { nome: "Cuffie", prezzo: 25 },
+  { nome: "Webcam", prezzo: 70 }
+];
+
+
+const economici = prodotti3.filter(prod => prod.prezzo <= 30)
+
+economici.forEach(prod =>{
+    console.log(`${prod.nome} costa ${prod.prezzo} = Economico`)
+})
+
+
+const prodotti4 = [
+  {
+    nome: "Mouse",
+    prezzo: 15,
+    descrivi() {
+      console.log(`${this.nome} costa ${this.prezzo}€`);
+    }
+  },
+  {
+    nome: "Tastiera",
+    prezzo: 45,
+    descrivi() {
+      console.log(`${this.nome} costa ${this.prezzo}€`);
+    }
+  },
+  {
+    nome: "Monitor",
+    prezzo: 120,
+    descrivi() {
+      console.log(`${this.nome} costa ${this.prezzo}€`);
+    }
+  },
+  {
+    nome: "Cuffie",
+    prezzo: 25,
+    descrivi() {
+      console.log(`${this.nome} costa ${this.prezzo}€`);
+    }
+  }
+];
+
+const economici1 = prodotti4.filter( prod => prod.prezzo <= 30);
+
+economici1.forEach(prod => {
+    prod.descrivi();
+})
