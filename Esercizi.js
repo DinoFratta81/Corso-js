@@ -580,7 +580,7 @@ const personaggi = [
             console.log(`${this.nome} ha ${this.energia} energia.`);
         }
     },
-        {
+    {
         nome: "Ingrid",
         energia: 80,
         attacca() {
@@ -593,7 +593,7 @@ const personaggi = [
 ];
 
 
-personaggi.forEach(pg =>{
+personaggi.forEach(pg => {
     pg.descrivi()
     pg.attacca()
     pg.attacca()
@@ -602,54 +602,292 @@ personaggi.forEach(pg =>{
 
 
 const prodotti3 = [
-  { nome: "Mouse", prezzo: 15 },
-  { nome: "Tastiera", prezzo: 45 },
-  { nome: "Monitor", prezzo: 120 },
-  { nome: "Cuffie", prezzo: 25 },
-  { nome: "Webcam", prezzo: 70 }
+    { nome: "Mouse", prezzo: 15 },
+    { nome: "Tastiera", prezzo: 45 },
+    { nome: "Monitor", prezzo: 120 },
+    { nome: "Cuffie", prezzo: 25 },
+    { nome: "Webcam", prezzo: 70 }
 ];
 
 
 const economici = prodotti3.filter(prod => prod.prezzo <= 30)
 
-economici.forEach(prod =>{
+economici.forEach(prod => {
     console.log(`${prod.nome} costa ${prod.prezzo} = Economico`)
 })
 
 
 const prodotti4 = [
-  {
-    nome: "Mouse",
-    prezzo: 15,
-    descrivi() {
-      console.log(`${this.nome} costa ${this.prezzo}€`);
+    {
+        nome: "Mouse",
+        prezzo: 15,
+        descrivi() {
+            console.log(`${this.nome} costa ${this.prezzo}€`);
+        }
+    },
+    {
+        nome: "Tastiera",
+        prezzo: 45,
+        descrivi() {
+            console.log(`${this.nome} costa ${this.prezzo}€`);
+        }
+    },
+    {
+        nome: "Monitor",
+        prezzo: 120,
+        descrivi() {
+            console.log(`${this.nome} costa ${this.prezzo}€`);
+        }
+    },
+    {
+        nome: "Cuffie",
+        prezzo: 25,
+        descrivi() {
+            console.log(`${this.nome} costa ${this.prezzo}€`);
+        }
     }
-  },
-  {
-    nome: "Tastiera",
-    prezzo: 45,
-    descrivi() {
-      console.log(`${this.nome} costa ${this.prezzo}€`);
-    }
-  },
-  {
-    nome: "Monitor",
-    prezzo: 120,
-    descrivi() {
-      console.log(`${this.nome} costa ${this.prezzo}€`);
-    }
-  },
-  {
-    nome: "Cuffie",
-    prezzo: 25,
-    descrivi() {
-      console.log(`${this.nome} costa ${this.prezzo}€`);
-    }
-  }
 ];
 
-const economici1 = prodotti4.filter( prod => prod.prezzo <= 30);
+const economici1 = prodotti4.filter(prod => prod.prezzo <= 30);
 
 economici1.forEach(prod => {
     prod.descrivi();
-})
+});
+
+
+const studenti3 = [
+    {
+        nome: "Dino",
+        voto: 8,
+        descrivi() {
+            console.log(`Studente : ${this.nome}, voto: ${this.voto}.`)
+        },
+    },
+    {
+        nome: "Pilaf",
+        voto: 4,
+        descrivi() {
+            console.log(`Studente : ${this.nome}, voto: ${this.voto}.`)
+        },
+    },
+    {
+        nome: "Ernesto",
+        voto: 6,
+        descrivi() {
+            console.log(`Studente : ${this.nome}, voto: ${this.voto}.`)
+        },
+    },
+];
+
+studenti3.forEach(stud => {
+    if (stud.voto < 6) {
+        stud.voto++;
+    }
+    stud.descrivi();
+});
+
+const prodotti5 = [
+    {
+        nome: "Mouse",
+        prezzo: 20,
+        descrivi() {
+            console.log(`${this.nome} costa ${this.prezzo}€`);
+        }
+    },
+    {
+        nome: "Monitor",
+        prezzo: 150,
+        descrivi() {
+            console.log(`${this.nome} costa ${this.prezzo}€`);
+        }
+    },
+    {
+        nome: "Cuffie",
+        prezzo: 25,
+        descrivi() {
+            console.log(`${this.nome} costa ${this.prezzo}€`);
+        }
+    },
+];
+
+prodotti5.forEach(prod => {
+    if (prod.prezzo < 30) {
+        prod.prezzo += 5
+    }
+    else if (prod.prezzo >= 30) {
+        prod.prezzo -= 10
+    };
+    prod.descrivi()
+});
+
+
+const personaggi1 = [
+    {
+        nome: "Dino",
+        energia: 100,
+        attacco: 20,
+        difesa: 5,
+
+        colpisci() {
+            this.energia -= this.attacco / 2;
+        },
+
+        cura() {
+            this.energia += 10;
+        },
+
+        descrivi() {
+            console.log(`${this.nome} → Energia: ${this.energia}, Attacco: ${this.attacco}, Difesa: ${this.difesa}`);
+        }
+    },
+
+    {
+        nome: "Pilaf",
+        energia: 80,
+        attacco: 24,
+        difesa: 15,
+
+        colpisci() {
+            this.energia -= this.attacco / 3;
+        },
+
+        cura() {
+            this.energia += 5;
+        },
+
+        descrivi() {
+            console.log(`${this.nome} → Energia: ${this.energia}, Attacco: ${this.attacco}, Difesa: ${this.difesa}`);
+        }
+    },
+
+    {
+        nome: "Ernesto",
+        energia: 120,
+        attacco: 30,
+        difesa: 2,
+
+        colpisci() {
+            this.energia -= this.attacco / 4;
+        },
+
+        cura() {
+            this.energia += 15;
+        },
+
+        descrivi() {
+            console.log(`${this.nome} → Energia: ${this.energia}, Attacco: ${this.attacco}, Difesa: ${this.difesa}`);
+        }
+    }
+];
+
+personaggi1.forEach(pg => {
+    pg.descrivi()
+    pg.colpisci()
+    pg.cura()
+    pg.descrivi()
+});
+
+
+const robot = [
+    {
+        nome: "Bolt",
+        batteria: 1000,
+        potenza: 310,
+        consumo: 200,
+        usa() {
+            this.batteria -= this.potenza;
+        },
+        ricarica() {
+            this.batteria += 200
+        },
+        status() {
+            console.log(`Questo robot ha batteria: ${this.batteria}, potenza: ${this.potenza}, consumo: ${this.consumo}.`)
+        }
+    },
+
+    {
+        nome: "Sneaky",
+        batteria: 800,
+        potenza: 200,
+        consumo: 170,
+        usa() {
+            this.batteria -= this.potenza;
+        },
+        ricarica() {
+            this.batteria += 200
+        },
+        status() {
+            console.log(`Questo robot ha batteria: ${this.batteria}, potenza: ${this.potenza}, consumo: ${this.consumo}.`)
+        }
+    },
+
+    {
+        nome: "Adanca",
+        batteria: 550,
+        potenza: 135,
+        consumo: 80,
+        usa() {
+            this.batteria -= this.potenza;
+        },
+        ricarica() {
+            this.batteria += 200
+        },
+        status() {
+            console.log(`Questo robot ha batteria: ${this.batteria}, potenza: ${this.potenza}, consumo: ${this.consumo}.`)
+        }
+    }
+];
+
+const standBy = robot.filter(rb => rb.batteria < 400);
+
+standBy.forEach(rb => {
+    rb.ricarica();
+    rb.status()
+});
+
+
+
+class Robot {
+    constructor(nome, energia) {
+        this.nome = nome;
+        this.energia = energia;
+    }
+
+    status() {
+        console.log(`Robot: ${this.nome}, energia: ${this.energia}`);
+    }
+
+    static creaRobot() {
+        return new Robot("Bolt", 1000);
+    }
+
+    static confronta(r1, r2) {
+        if (r1.energia > r2.energia) {
+            console.log(`${r1.nome} ha più energia di ${r2.nome}`);
+        } else if (r2.energia > r1.energia) {
+            console.log(`${r2.nome} ha più energia di ${r1.nome}`);
+        } else {
+            console.log(`${r1.nome} e ${r2.nome} hanno la stessa energia`);
+        }
+    }
+}
+
+const r1 = new Robot("Mr.Roboto", 200);
+const r2 = Robot.creaRobot();
+const r3 = new Robot("Mrs.Roboto", 200);
+const r4 = new Robot("Roboto JR", 140);
+
+const robot1 = [r1, r2, r3, r4];
+
+for (let i = 0; i < robot1.length; i++) {
+    for (let j = i + 1; j < robot1.length; j++) {
+        Robot.confronta(robot1[i], robot1[j]);
+    }
+}
+
+Robot.confronta(r1, r2);
+Robot.confronta(r1, r3);
+Robot.confronta(r1, r4);
+Robot.confronta(r2, r3);
+Robot.confronta(r2, r4);
+Robot.confronta(r3, r4);
