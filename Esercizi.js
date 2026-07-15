@@ -891,3 +891,47 @@ Robot.confronta(r1, r4);
 Robot.confronta(r2, r3);
 Robot.confronta(r2, r4);
 Robot.confronta(r3, r4);
+
+
+class Robot1 {
+    static numeroRobot = 0
+    constructor(nome, potenza) {
+        this.nome = nome;
+        this.potenza = potenza;
+        Robot1.numeroRobot++
+    }
+    status() {
+        console.log(`Robot : ${this.nome}, potenza : ${this.potenza}.`)
+    }
+
+    static creaForte() {
+        return new Robot1("StrongBot", 2000);
+    }
+    static piùPotente(r1, r2) {
+        return r1 > r2 ? r1 : r2;
+    }
+}
+
+const r5 = new Robot1("Titan", 300);
+const r6 = new Robot1("Shadow", 180);
+const r7 = Robot1.creaForte();
+const r8 = new Robot1("Nova", 250);
+
+
+const robot2 = [r5, r6, r7, r8];
+
+for (i = 0; i < robot2.length; i++) {
+    for (j = i + 1; j < robot2.length; j++) {
+        const winner = Robot1.piùPotente(robot2[i], robot2[j]);
+        console.log(`Tra il robot ${robot2[i].nome} e ${robot2[j].nome}, vince il robot ${winner.nome}, con potenza ${winner.potenza}.`)
+    };
+};
+
+Robot1.piùPotente(r5, r6);
+Robot1.piùPotente(r5, r7);
+Robot1.piùPotente(r5, r8);
+Robot1.piùPotente(r6, r7);
+Robot1.piùPotente(r6, r8);
+Robot1.piùPotente(r7, r8);
+console.log(`Il counter è : ${Robot1.numeroRobot}`);
+
