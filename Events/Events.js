@@ -14,14 +14,14 @@ bottone.addEventListener("click", (event) => {
 
 //Oppure
 
-function handleclick(e) {
+function handleclick1(e) {
     console.log("sto cliccando:", e); //La variabile e contiene tutte le informazioni sull'evento, come il tipo di evento, l'elemento su cui è stato scatenato, la posizione del mouse, ecc.
 }
 bottone.addEventListener("click", handleclick);
 
-//Rimuovere un eventListener: (valido commentato perchè sennò sfascia tutto)
+//Rimuovere un eventListener: (valido ma commentato perchè sennò sfascia tutto)
 
-// bottone.removeEventListener("click", handleclick);
+// bottone.removeEventListener("click", handleclick); quindi deve essere proprio la stessa funzione che è stata passata a addEventListener, altrimenti non funziona cioè : bottone.removeEventListener("click", handleclick1); funziona
 
 //Per rimuovere un event listener, bisogna passare la stessa funzione che è stata aggiunta.
 //Se per esempio abbiamo: 

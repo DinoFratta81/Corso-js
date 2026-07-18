@@ -920,11 +920,13 @@ const r8 = new Robot1("Nova", 250);
 
 const robot2 = [r5, r6, r7, r8];
 
-for (i = 0; i < robot2.length; i++) {
-    for (j = i + 1; j < robot2.length; j++) {
+
+for (let i = 0; i < robot2.length; i++) {
+    for (let j = i + 1; j < robot2.length; j++) {
         const winner = Robot1.piùPotente(robot2[i], robot2[j]);
-        console.log(`Tra il robot ${robot2[i].nome} e ${robot2[j].nome}, vince il robot ${winner.nome}, con potenza ${winner.potenza}.`)
+        console.log(`Tra il robot ${robot2[i].nome} e il robot ${robot2[j].nome} vince il ${winner.nome} con potenza di ${winner.potenza}.`)
     };
+
 };
 
 Robot1.piùPotente(r5, r6);
@@ -933,5 +935,57 @@ Robot1.piùPotente(r5, r8);
 Robot1.piùPotente(r6, r7);
 Robot1.piùPotente(r6, r8);
 Robot1.piùPotente(r7, r8);
-console.log(`Il counter è : ${Robot1.numeroRobot}`);
+console.log(`Il numero di robot è : ${Robot1.numeroRobot}.`)
+
+
+const arr = [93, 38, 973, 19, 90, 76, 54];
+const arr1 = [929, 82, 39, 82, 12, 49, 6789];
+const arr2 = [2102, 810, 93, 82, 91, 61, 6798];
+const arr3 = [54, 678, 345, 543, 19, 68, 91, 3792];
+
+let fusion = [...arr, ...arr3, 95];
+console.log(fusion);
+
+let [item1, item2, ...theOthers] = arr3
+console.log(theOthers);
+
+const title = document.getElementById("titolo");
+title.textContent = "Benvenuto nel DOM";
+console.log(title.textContent);
+
+const msg = document.getElementById("messaggio");
+msg.style.color = "red";
+msg.style.fontSize = "24px";
+
+
+const div = document.getElementById("contenitore");
+const nuovoParagrafo = document.createElement("p");
+nuovoParagrafo.textContent = "Nuovo paragrafo";
+div.appendChild(nuovoParagrafo);
+
+const btn = document.getElementById("btn");
+const out = document.getElementById("output");
+btn.addEventListener("click", () => {
+    out.textContent = "Bottone cliccato";
+});
+
+
+const lista = document.getElementById("lista");
+const add1 = document.getElementById("add");
+
+add1.addEventListener("click", () => {
+    const li = document.createElement("li");
+    li.textContent = "Nuovo list item";
+    lista.appendChild(li);
+}
+);
+
+const input = document.getElementById("nome");
+const stampa = document.getElementById("stampa");
+const risultato = document.getElementById("risultato");
+
+
+stampa.addEventListener("click", () => {
+    risultato.textContent = input.value;
+});
 
