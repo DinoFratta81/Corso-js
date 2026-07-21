@@ -989,3 +989,66 @@ stampa.addEventListener("click", () => {
     risultato.textContent = input.value;
 });
 
+
+const btn1 = document.getElementById("btn1");
+const out1 = document.getElementById("out1");
+
+function saluto() {
+    out1.textContent = "Hai cliccato!";
+};
+
+btn1.addEventListener("click", saluto);
+
+setTimeout(() => {
+    btn1.removeEventListener("click", saluto);
+    out1.textContent = "Listener Rimosso";
+}, 3000);
+
+const btn2 = document.getElementById("btn2");
+const out2 = document.getElementById("out2");
+
+
+function saluto1() {
+    out2.textContent = "Hai cliccato!";
+};
+
+let attivo = false;
+btn2.addEventListener("click", () => {
+    if (!attivo) {
+        btn2.addEventListener("click", saluto1);
+        out2.textContent = "Listener On";
+        attivo = true;
+
+    } else {
+        btn2.removeEventListener("click", saluto1);
+        out2.textContent = "Listener Off";
+        attivo = false;
+    }
+});
+
+
+const switchBtn = document.getElementById("switchBtn");
+const display = document.getElementById("display");
+
+
+function mostraMessaggio() {
+    display.textContent = "Evento on";
+};
+
+
+switchBtn.addEventListener("click", mostraMessaggio);
+
+let isActive = true;
+
+
+switchBtn.addEventListener("click", () => {
+    if (isActive) {
+        switchBtn.removeEventListener("click", mostraMessaggio);
+        display.textContent = "Listener spento";
+        isActive = false;
+    } else {
+        switchBtn.addEventListener("click", mostraMessaggio);
+        display.textContent = "Listener riattivato";
+        isActive = true;
+    }
+});
