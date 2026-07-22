@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esercizi</title>
+
+    <style>
+        .defaultBox {
+            width: 150px;
+            height: 150px;
+            background: gray;
+        }
+
+        .highlightBox {
+            background: yellow;
+            border: 3px solid black;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,7 +50,28 @@
     <p id="display">Listener attivo all'inizio</p>
 
 
+    <button id="toggleBoxBtn">Mostra/Nascondi</button>
+    <div id="colorBox" style="width:150px; height:150px; background:blue;"></div><br>
 
+    <button id="colorCycleBtn">Cambia colore</button>
+    <div id="colorSquare" style="width:150px; height:150px; background:gray;"></div><br>
+
+
+    <input id="userText" placeholder="Scrivi qualcosa">
+    <button id="updateBtn">Aggiorna</button>
+    <p id="resultText">Testo iniziale</p><hr>
+
+
+    <button id="styleBtn">Cambia stile</button>
+    <div id="box" class="defaultBox"></div>
+    <hr>
+
+
+    <div id="hoverBox" style="width:150px; height:150px; background:lightblue;"></div>
+    <p id="hoverText">Passa il mouse sopra il box</p><hr>
+
+    <div id="trackArea" style="width:300px; height:150px; background:lightgray;"></div>
+    <p id="coords">Coordinate: x=0, y=0</p>
 
 </body>
 

@@ -1052,3 +1052,73 @@ switchBtn.addEventListener("click", () => {
         isActive = true;
     }
 });
+
+
+const toggleBoxBtn = document.getElementById("toggleBoxBtn");
+const colorBox = document.getElementById("colorBox");
+
+
+let boxVisible = true;
+
+toggleBoxBtn.addEventListener("click", () => {
+    if (boxVisible) {
+        colorBox.style.width = "50px";
+        boxVisible = false;
+    } else {
+        colorBox.style.width = "150px";
+        boxVisible = true;
+    };
+});
+
+const colorCycleBtn = document.getElementById("colorCycleBtn");
+const colorSquare = document.getElementById("colorSquare");
+
+
+const palette = ["red", "green", "blue", "purple", "orange"];
+
+let currentIndex = 0;
+
+
+colorCycleBtn.addEventListener("click", () => {
+    colorSquare.style.background = palette[currentIndex];
+    currentIndex++;
+    if (currentIndex >= palette.length) {
+        currentIndex = 0;
+    }
+});
+
+const userText = document.getElementById("userText");
+const updateBtn = document.getElementById("updateBtn");
+const resultText = document.getElementById("resultText");
+
+updateBtn.addEventListener("click", () => {
+    resultText.textContent = userText.value;
+});
+
+
+
+const styleBtn = document.getElementById("styleBtn");
+const box = document.getElementById("box");
+
+styleBtn.addEventListener("click", () => {
+    box.classList.toggle("highlightBox");
+});
+
+const hoverBox = document.getElementById("hoverBox");
+const hoverText = document.getElementById("hoverText");
+
+hoverBox.addEventListener("mouseover", () => {
+    hoverText.textContent = "Entrato nel box!"
+});
+
+
+hoverBox.addEventListener("mouseout", () => {
+    hoverText.textContent = "Uscito dal box!"
+});
+
+const trackArea = document.getElementById("trackArea");
+const coords = document.getElementById("coords");
+
+trackArea.addEventListener("mousemove", () => {
+    coords.textContent = `Coordinate :  x=${event.clientX}, y=${event.clientY}`;
+})
