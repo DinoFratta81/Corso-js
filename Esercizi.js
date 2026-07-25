@@ -1121,4 +1121,122 @@ const coords = document.getElementById("coords");
 
 trackArea.addEventListener("mousemove", () => {
     coords.textContent = `Coordinate :  x=${event.clientX}, y=${event.clientY}`;
-})
+});
+
+const multiBox = document.getElementById("multiBox");
+const multiText = document.getElementById("multiText");
+
+multiBox.addEventListener("mouseover", () => {
+    multiText.textContent = "Sei sopra!"
+});
+
+
+multiBox.addEventListener("mouseout", () => {
+    multiText.textContent = "Sei fuori!"
+});
+
+
+multiBox.addEventListener("click", () => {
+    multiText.textContent = "Hai cliccato nel box!"
+});
+
+
+const dragBox = document.getElementById("dragBox");
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+
+
+dragBox.addEventListener("mousedown", (event) => {
+    isDragging = true;
+    offsetX = event.offsetX;
+    offsetY = event.offsetY;
+});
+
+document.addEventListener("mousemove", (event) => {
+    if (isDragging) {
+        dragBox.style.left = event.clientX - offsetX + "px";
+        dragBox.style.top = event.clientY - offsetY + "px";
+    }
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+});
+
+
+const dropZone = document.getElementById("dropZone");
+const dragItem = document.getElementById("dragItem");
+
+let dragging = false;
+
+dragItem.addEventListener("mousedown", () => {
+    dragging = true;
+});
+
+document.addEventListener("mousemove", (event) => {
+    if (dragging) {
+        dragItem.style.left = event.clientX - 40 + "px"
+        dragItem.style.top = event.clientY - 40 + "px"
+    }
+});
+
+
+document.addEventListener("mouseup", () => {
+    dragging = false
+
+    const zoneRect = dropZone.getBoundingClientRect();
+    const itemRect = dragItem.getBoundingClientRect();
+
+    const inside =
+
+        itemRect.left > zoneRect.left &&
+        itemRect.right < zoneRect.right &&
+        itemRect.top > zoneRect.top &&
+        itemRect.bottom < zoneRect.bottom
+
+    if (inside) {
+        dropZone.style.backgroundColor = "lightgreen";
+        dragItem.textContent = "Sono a destinazione!"
+    } else {
+        dropZone.style.backgroundColor = "lightgray";
+    }
+});
+
+
+const playArea = document.getElementById("playArea");
+const player = document.getElementById("player");
+
+let draggingPlayer = false;
+let offsetX1 = 0;
+let offsetY1 = 0;
+
+
+player.addEventListener("mousedown", (event) => {
+    draggingPlayer = true;
+    offsetX1 = event.clientX;
+    offsetY1 = event.clientY;
+});
+
+
+document.addEventListener("mousemove", (event) => {
+    if (!draggingPlayer) return
+
+    const areaRect = playArea.getBoundingClientRect();
+    const newX = event.clientX - areaRect.left - offsetX1;
+    const newY = event.clientX - areaRect.top - offsetY1;
+
+    const maxX = areaRect.width - player.offsetWidth;
+    const maxY = areaRect.height - player.offsetHeight;
+
+    player.style.left = Math.max(0, Math.min(newX, maxX)) + "px";
+    player.style.top = Math.max(0, Math.min(newY, maxY)) + "px";
+
+});
+
+
+document.addEventListener("mouseup", () => {
+    draggingPlayer = false;
+});
