@@ -1151,14 +1151,15 @@ let offsetY = 0;
 
 dragBox.addEventListener("mousedown", (event) => {
     isDragging = true;
-    offsetX = event.offsetX;
-    offsetY = event.offsetY;
+    offsetX = event.clientX;
+    offsetY = event.clientY;
 });
 
 document.addEventListener("mousemove", (event) => {
     if (isDragging) {
         dragBox.style.left = event.clientX - offsetX + "px";
         dragBox.style.top = event.clientY - offsetY + "px";
+
     }
 });
 
@@ -1178,8 +1179,8 @@ dragItem.addEventListener("mousedown", () => {
 
 document.addEventListener("mousemove", (event) => {
     if (dragging) {
-        dragItem.style.left = event.clientX - 40 + "px"
-        dragItem.style.top = event.clientY - 40 + "px"
+        dragItem.style.left = event.clientX - 40 + "px";
+        dragItem.style.top = event.clientY - 40 + "px";
     }
 });
 
@@ -1210,14 +1211,14 @@ const playArea = document.getElementById("playArea");
 const player = document.getElementById("player");
 
 let draggingPlayer = false;
-let offsetX1 = 0;
-let offsetY1 = 0;
+offsetX = 0;
+offsetY = 0;
 
 
 player.addEventListener("mousedown", (event) => {
     draggingPlayer = true;
-    offsetX1 = event.clientX;
-    offsetY1 = event.clientY;
+    offsetX = event.clientX;
+    offsetY = event.clientY;
 });
 
 
@@ -1225,8 +1226,8 @@ document.addEventListener("mousemove", (event) => {
     if (!draggingPlayer) return
 
     const areaRect = playArea.getBoundingClientRect();
-    const newX = event.clientX - areaRect.left - offsetX1;
-    const newY = event.clientX - areaRect.top - offsetY1;
+    const newX = event.clientX - areaRect.left - offsetX;
+    const newY = event.clientX - areaRect.top - offsetY;
 
     const maxX = areaRect.width - player.offsetWidth;
     const maxY = areaRect.height - player.offsetHeight;
@@ -1239,4 +1240,43 @@ document.addEventListener("mousemove", (event) => {
 
 document.addEventListener("mouseup", () => {
     draggingPlayer = false;
+});
+
+
+const campo = document.getElementById("campo");
+const giocatore = document.getElementById("giocatore");
+
+
+document.addEventListener("keydown", (event) => {
+    const maxX = campo.offsetWidth - giocatore.offsetWidth;
+    const maxY = campo.offsetHeight - giocatore.offsetHeight;
+
+    let x = giocatore.offsetLeft;
+    let y = giocatore.offsetTop;
+
+    if (event.key === "ArrowRight") x += 10;
+    if (event.key === "ArrowLeft") x -= 10;
+    if (event.key === "ArrowDown") y += 10;
+    if (event.key === "ArrowUp") y -= 10;
+
+    giocatore.style.left = Math.max(0, Math.min(x, maxX)) + "px";
+    giocatore.style.top = Math.max(0, Math.min(y, maxY)) + "px";
+});
+
+
+
+const area = document.getElementById("area");
+const cursorBox = document.getElementById("cursorBox");
+
+area.addEventListener("mousemove", (event) => {
+    const rectArea = area.getBoundingClientRect();
+
+    const mouseX = event.clientX - rectArea.left;
+    const mouseY = event.clientY - rectArea.top;
+
+    const maxX = area.offsetWidth - cursorBox.offsetWidth;
+    const maxY = area.offsetHeight - cursorBox.offsetHeight;
+
+    cursorBox.style.left = Math.max(0, Math.min(mouseX, maxX)) + "px";
+    cursorBox.style.top = Math.max(0, Math.min(mouseY, maxY)) + "px";
 });
