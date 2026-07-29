@@ -1280,3 +1280,55 @@ area.addEventListener("mousemove", (event) => {
     cursorBox.style.left = Math.max(0, Math.min(mouseX, maxX)) + "px";
     cursorBox.style.top = Math.max(0, Math.min(mouseY, maxY)) + "px";
 });
+
+const area1 = document.getElementById("area1");
+const box1 = document.getElementById("box1");
+
+
+
+area1.addEventListener("click", (event) => {
+    const rect = area1.getBoundingClientRect();
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
+
+    const maxX = area1.offsetWidth - box1.offsetWidth;
+    const maxY = area1.offsetHeight - box1.offsetHeight;
+
+    box1.style.left = Math.max(0, Math.min(mouseX, maxX)) + "px";
+    box1.style.top = Math.max(0, Math.min(mouseY, maxY)) + "px";
+});
+
+
+const area2 = document.getElementById("area2");
+const box2 = document.getElementById("box2");
+
+dragging = false;
+offsetX = 0;
+offsetY = 0;
+
+box2.addEventListener("mousedown", (event) => {
+    dragging = true;
+
+    const rectBox = box2.getBoundingClientRect();
+    offsetX = event.clientX - rectBox.left;
+    offsetY = event.clientY - rectBox.top;
+});
+
+document.addEventListener("mouseup", () => {
+    dragging = false;
+});
+
+document.addEventListener("mousemove", (event) => {
+    if (!dragging) return;
+
+    const rectArea = area2.getBoundingClientRect();
+
+    const mouseX = event.clientX - rectArea.left - offsetX;
+    const mouseY = event.clientY - rectArea.top - offsetY;
+
+    const maxX = area2.offsetWidth - box2.offsetWidth;
+    const maxY = area2.offsetHeight - box2.offsetHeight;
+
+    box2.style.left = Math.max(0, Math.min(mouseX, maxX)) + "px";
+    box2.style.top  = Math.max(0, Math.min(mouseY, maxY)) + "px";
+});
