@@ -1299,6 +1299,13 @@ area1.addEventListener("click", (event) => {
 });
 
 
+
+
+
+
+
+//Quadrato segue dentro un contenitore solo al click
+
 const area2 = document.getElementById("area2");
 const box2 = document.getElementById("box2");
 
@@ -1330,5 +1337,134 @@ document.addEventListener("mousemove", (event) => {
     const maxY = area2.offsetHeight - box2.offsetHeight;
 
     box2.style.left = Math.max(0, Math.min(mouseX, maxX)) + "px";
-    box2.style.top  = Math.max(0, Math.min(mouseY, maxY)) + "px";
+    box2.style.top = Math.max(0, Math.min(mouseY, maxY)) + "px";
 });
+
+
+const area3 = document.getElementById("area3");
+const box3 = document.getElementById("box3");
+
+dragging = false;
+offsetX = 0;
+offsetY = 0;
+
+
+box3.addEventListener("mousedown", (event) => {
+    dragging = true;
+
+    const rectBox = box3.getBoundingClientRect();
+    offsetX = event.clientX - rectBox.left;
+    offsetY = event.clientY - rectBox.top;
+});
+
+document.addEventListener("mouseup", () => {
+    dragging = false;
+});
+
+document.addEventListener("mousemove", (event) => {
+    if (!dragging) return
+    const rectArea = area3.getBoundingClientRect();
+
+    const mouseX = event.clientX - rectArea.left - offsetX;
+    const mouseY = event.clientY - rectArea.top - offsetY;
+
+    const maxX = area3.offsetWidth - box3.offsetWidth;
+    const maxY = area3.offsetHeight - box3.offsetHeight;
+
+    box3.style.left = Math.max(0, Math.min(mouseX, maxX)) + "px";
+    box3.style.top = Math.max(0, Math.min(mouseY, maxY)) + "px";
+});
+
+
+const box4 = document.getElementById("box4");
+const target = document.getElementById("target");
+
+let dragging4 = false;
+let offsetX4 = 0;
+let offsetY4 = 0;
+
+box4.addEventListener("mousedown", (event) => {
+    dragging4 = true;
+
+    const rect = box4.getBoundingClientRect();
+    offsetX4 = event.pageX - rect.left;
+    offsetY4 = event.pageY - rect.top;
+});
+
+document.addEventListener("mouseup", () => {
+    dragging4 = false;
+
+    const a = box4.getBoundingClientRect();
+    const b = target.getBoundingClientRect();
+
+    const droppato =
+        a.left < b.right &&
+        a.right > b.left &&
+        a.top < b.bottom &&
+        a.bottom > b.top;
+
+    if (droppato) {
+        target.style.background = "yellow";
+        target.style.borderColor = "orange";
+        target.textContent = "Drop fatto!";
+    } else {
+        target.style.background = "rgb(8, 185, 8)";
+    }
+});
+document.addEventListener("mousemove", (event) => {
+    if (!dragging4) return;
+
+    const mouseX = event.pageX - offsetX4;
+    const mouseY = event.pageY - offsetY4;
+
+    box4.style.left = mouseX + "px";
+    box4.style.top = mouseY + "px";
+});
+
+
+const pallino = document.getElementById("pallino");
+const zonaDrop = document.getElementById("zonaDrop");
+
+let Drag = false;
+let offsetX5 = 0;
+let offsetY5 = 0;
+
+pallino.addEventListener("mousedown", (event) => {
+    Drag = true;
+
+    const rectBox1 = pallino.getBoundingClientRect();
+    offsetX5 = event.pageX - rectBox1.left;
+    offsetY5 = event.pageY - rectBox1.top;
+});
+
+document.addEventListener("mouseup", () => {
+    Drag = false;
+
+    let c = pallino.getBoundingClientRect();
+    let d = zonaDrop.getBoundingClientRect();
+
+    const dropped =
+        c.left < d.right &&
+        c.right > d.left &&
+        c.top < d.bottom &&
+        c.bottom > d.top;
+
+    if (dropped) {
+        zonaDrop.style.background = "yellow";
+        zonaDrop.style.borderColor = "orange";
+        zonaDrop.textContent = "Drop fatto!";
+    } else {
+        zonaDrop.style.background = "rgb(8, 185, 8)";
+    }
+});
+
+
+document.addEventListener("mousemove", (event) =>{
+    if(!Drag) return;
+
+    const mouseX = event.pageX - offsetX5
+    const mouseY = event.pageY - offsetY5
+    
+    pallino.style.left =  mouseX + "px";
+    pallino.style.top =  mouseY + "px";
+})
