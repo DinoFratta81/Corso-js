@@ -1459,12 +1459,138 @@ document.addEventListener("mouseup", () => {
 });
 
 
-document.addEventListener("mousemove", (event) =>{
-    if(!Drag) return;
+document.addEventListener("mousemove", (event) => {
+    if (!Drag) return;
 
     const mouseX = event.pageX - offsetX5
     const mouseY = event.pageY - offsetY5
-    
-    pallino.style.left =  mouseX + "px";
-    pallino.style.top =  mouseY + "px";
-})
+
+    pallino.style.left = mouseX + "px";
+    pallino.style.top = mouseY + "px";
+});
+
+// offsetX e offsetY sono in breve le coordinate del mouse rispetto all'elemento trascinato, calcolate al momento del click (mousedown). Queste coordinate vengono utilizzate per mantenere la posizione relativa del mouse rispetto all'elemento durante il trascinamento, evitando che l'elemento "salti" alla posizione del mouse.
+
+
+
+const pallino1 = document.getElementById("pallino1");
+const zonaDrop1 = document.getElementById("zonaDrop1");
+
+
+let spostamento = false;
+
+let offsetX6 = 0;
+let offsetY6 = 0;
+
+
+pallino1.addEventListener("mousedown", (event) => {
+
+    spostamento = true;
+
+    const rectpal = pallino1.getBoundingClientRect();
+
+    offsetX6 = event.pageX - rectpal.left;
+    offsetY6 = event.pageY - rectpal.top;
+});
+
+
+document.addEventListener("mouseup", () => {
+
+    spostamento = false;
+
+    let e = pallino1.getBoundingClientRect();
+    let f = zonaDrop1.getBoundingClientRect();
+
+    const inside =
+
+        e.left < f.right &&
+        e.right > f.left &&
+        e.top < f.bottom &&
+        e.bottom > f.top;
+
+    if (inside) {
+        zonaDrop1.style.background = "yellow";
+        zonaDrop1.style.borderColor = "orange";
+        zonaDrop1.textContent = "Drop fatto!";
+    } else {
+        zonaDrop1.style.background = "rgb(8, 185, 8)";
+    }
+});
+
+
+document.addEventListener("mousemove", (event) => {
+    if (!spostamento) return;
+
+    const mouse_X = event.pageX - offsetX6;
+    const mouse_Y = event.pageY - offsetY6;
+
+    pallino1.style.left = mouse_X + "px";
+    pallino1.style.top = mouse_Y + "px";
+});
+
+
+const box5 = document.getElementById("box5");
+
+box5.addEventListener("click", () => {
+    box5.classList.toggle("attivo");
+});
+
+
+const form = document.getElementById("login");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+// Regex per email
+const emailRegex = /\S+@\S+\.\S+/;
+
+// VALIDAZIONE LIVE (mentre scrivi)
+email.addEventListener("input", () => {
+    if (emailRegex.test(email.value)) {
+        email.classList.add("ok");
+        email.classList.remove("errore");
+    } else {
+        email.classList.add("errore");
+        email.classList.remove("ok");
+    }
+});
+
+password.addEventListener("input", () => {
+    if (password.value.trim() !== "" && password.value.length >= 6) {
+        password.classList.add("ok");
+        password.classList.remove("errore");
+    } else {
+        password.classList.add("errore");
+        password.classList.remove("ok");
+    }
+});
+
+// VALIDAZIONE AL SUBMIT
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // EMAIL
+    if (!emailRegex.test(email.value)) {
+        alert("Email non valida");
+        email.classList.add("errore");
+        email.classList.remove("ok");
+        return;
+    }
+
+    // PASSWORD
+    if (password.value.trim() === "" || password.value.length < 6) {
+        alert("Password obbligatoria o troppo corta");
+        password.classList.add("errore");
+        password.classList.remove("ok");
+        return;
+    }
+
+    // Se tutto è ok
+    alert("Form valido!");
+});
+
+
+
+
+
+
+
