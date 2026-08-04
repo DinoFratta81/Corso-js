@@ -1590,7 +1590,129 @@ form.addEventListener("submit", (e) => {
 
 
 
+const registrazione = document.getElementById("registrazione");
+const username = document.getElementById("username");
+const password1 = document.getElementById("password1");
 
 
+username.addEventListener("input", () => {
+    if (emailRegex.test(username.value)) {
+        username.classList.add("ok");
+        username.classList.remove("errore");
+    } else {
+        username.classList.add("errore");
+        username.classList.remove("ok");
+    }
+});
 
+
+password1.addEventListener("input", () => {
+    if (password1.value.trim() !== "" && password1.value.length >= 8) {
+        password1.classList.add("ok");
+        password1.classList.remove("errore");
+    } else {
+        password1.classList.add("errore");
+        password1.classList.remove("ok");
+    }
+});
+
+
+registrazione.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (!emailRegex.test(username.value)) {
+        alert("Email non valida");
+        username.classList.add("errore");
+        username.classList.remove("ok");
+        return;
+    };
+    if (password1.value.trim() === "" || password1.value.length < 8) {
+        alert("Password non valida");
+        password1.classList.add("errore");
+        password1.classList.remove("ok");
+        return;
+    };
+
+    alert("Form valido!");
+});
+
+
+const loginForm = document.getElementById("loginForm");
+const email2 = document.getElementById("email2");
+const password2 = document.getElementById("password2");
+const directAccess = document.getElementById("directAccess");
+
+
+email2.addEventListener("input", () => {
+    if (emailRegex.test(email2.value)) {
+        email2.classList.add("ok");
+        email2.classList.remove("errore");
+    } else {
+        email2.classList.add("errore");
+        email2.classList.remove("ok");
+    };
+});
+
+
+password2.addEventListener("input", () => {
+    if (password2.value.trim() !== "" && password2.value.length >= 8) {
+        password2.classList.add("ok");
+        password2.classList.remove("errore");
+    } else {
+        password2.classList.add("errore");
+        password2.classList.remove("ok");
+    };
+});
+
+
+// ⭐ 1) LOGIN CON FORM DATA (submit)
+
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!emailRegex.test(email2.value)) {
+        alert("Email non valida!")
+        email2.classList.add("errore");
+        email2.classList.remove("ok");
+        return;
+    };
+
+    if (password2.value.trim() === "" || password2.value.length < 8) {
+        alert("Password non valida!")
+        password2.classList.add("errore");
+        password2.classList.remove("ok");
+        return;
+    };
+
+
+    const dati = new FormData(form);
+
+    console.log("Login con FormData:");
+    console.log("Email:", dati.get("email"));
+    console.log("Password:", dati.get("password"));
+
+
+    alert("Login effettuato con FormData!");
+});
+
+
+// ⭐ 2) LOGIN CON ACCESSO DIRETTO (bottone separato)
+directAccess.addEventListener("click", () => {
+
+    // Validazione con accesso diretto
+    if (!emailRegex.test(email2.value)) {
+        alert("Email non valida");
+        return;
+    }
+
+    if (password2.value.trim() === "" || password2.value.length < 6) {
+        alert("Password obbligatoria o troppo corta");
+        return;
+    }
+
+    console.log("Login con Accesso Diretto:");
+    console.log("Email:", email2.value);
+    console.log("Password:", password2.value);
+
+    alert("Login effettuato con accesso diretto!");
+});
 

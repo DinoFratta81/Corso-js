@@ -37,6 +37,67 @@
     .ok {
       border: 2px solid green;
     }
+
+    #loginForm {
+      width: 300px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input :invalid {
+      border: red solid 1px;
+    }
+
+
+
+    input :valid {
+      border: green solid 1px;
+    }
+
+    .bottone {
+      margin-top: 20px;
+      background-color: green;
+      border: none;
+      border-radius: 10px;
+      gap: 13px;
+      width: 100%;
+      box-sizing: content-box;
+      padding: 10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    #form-group {
+      padding: 12px;
+      box-sizing: content-box;
+      margin-top: 20px;
+      margin-bottom: 8px;
+
+    }
+
+    .bottoni {
+      display: flex;
+      flex-direction: row;
+       width: 445px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 15px;
+      margin-bottom: 1px;
+      width: 100%;
+    }
+    input{
+      width: 400px;
+      box-sizing: content-box;
+      margin-top: 15px;
+      margin-bottom: 1px;
+      padding: 10px;
+    }
   </style>
 </head>
 
@@ -300,12 +361,41 @@
   <div id="box5" class="quadrato"></div>
   <hr>
 
+
+  <p>Form 1</p>
   <form id="login">
     <input id="email" type="text" placeholder="Email">
     <input id="password" type="password" placeholder="Password">
     <button>Invia</button>
   </form>
+  <hr>
 
+
+  <p>Form 2</p>
+  <form id="registrazione">
+    <input id="username" type="text" placeholder="Username">
+    <input id="password1" type="password" placeholder="Password">
+    <button>Invia</button>
+  </form>
+  <hr>
+
+
+
+  <form id="loginForm">
+    <div id="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email2" name="email" placeholder="Inserisci la tua Email">
+    </div>
+
+    <div id="form-group">
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password2" placeholder="Inserisci la tua Password">
+    </div>
+    <div class="bottoni">
+      <button type="submit" class="bottone">Login con FormData</button>
+      <button type="button" id="directAccess" class="bottone">Login con Accesso Diretto</button>
+    </div>
+  </form>
 
 </body>
 
