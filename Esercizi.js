@@ -1716,3 +1716,71 @@ directAccess.addEventListener("click", () => {
     alert("Login effettuato con accesso diretto!");
 });
 
+
+const container = document.getElementById("container");
+const btn3 = document.getElementById("btn3");
+
+
+document.addEventListener("click", () => console.log("Document"), true);   // capturing
+document.addEventListener("click", () => console.log("Document"), false);  // bubbling
+
+container.addEventListener("click", () => console.log("Container", true));
+container.addEventListener("click", () => console.log("Container", false));
+
+//In breve true serve a dirgli di ascoltare l'evento in fase di capturing, false in fase di bubbling. False è ommissibile perché è il default, quindi se non scrivo nulla ascolta in fase di bubbling. 
+
+btn3.addEventListener("click", () => console.log("Button", true));
+btn3.addEventListener("click", () => console.log("Button", false));
+
+const btn4 = document.getElementById("btn4");
+
+btn4.addEventListener("click", () => {
+    console.log("Listener 1");
+});
+
+
+btn4.addEventListener("click", () => {
+    console.log("Listener 2");
+});
+
+
+btn4.addEventListener("click", (e) => {
+    console.log("Listener 3");
+    e.stopPropagation();
+});
+
+//L'output sarà comuqnue "Listener 1", "Listener 2" e "Listener 3" perché stopPropagation() impedisce il bubbling dell'evento verso gli elementi genitori e non il capturing
+
+
+btn.addEventListener("click", () => {
+  console.log("Listener 1");
+});
+
+btn.addEventListener("click", (e) => {
+  console.log("Listener 2");
+  e.stopImmediatePropagation(); // BLOCCA TUTTO
+});
+
+btn.addEventListener("click", () => {
+  console.log("Listener 3");
+});
+
+//Stesso caso ma qui l'output sarà solo "Listener 2 " perché stopImmediatePropagation() blocca tutti gli altri listener dello stesso elemento, sia quelli registrati prima che quelli registrati dopo. Il 2 ci sarà comunque perché è il target dell'evento, quindi viene eseguito prima di bloccare gli altri listener.
+
+const box6 = document.getElementById("box6");
+const btn6 = document.getElementById("btn6");
+
+document.addEventListener("click", () => console.log("Document CAP"), true);
+document.addEventListener("click", () => console.log("Document BUB"));
+
+box6.addEventListener("click", () => console.log("Box CAP"), true);
+box6.addEventListener("click", () => console.log("Box BUB"));
+
+btn6.addEventListener("click", (e) => {
+  console.log("Button TARGET");
+  e.stopImmediatePropagation();
+});
+
+
+
+// Qui l'output sarà "Document CAP", "Box CAP", "Button TARGET" perché stopImmediatePropagation() blocca tutti gli altri listener dello stesso elemento (in questo caso il button), e il tutto il bubbling verso gli elementi genitori (box e document) viene bloccato, e se c'è anche il capturing che resta, ma quello precedente non viene bloccato perché è già stato eseguito prima del target. Quindi il capturing del document e del box viene eseguito, ma il bubbling del button viene bloccato.
