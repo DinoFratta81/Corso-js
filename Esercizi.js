@@ -1727,10 +1727,12 @@ document.addEventListener("click", () => console.log("Document"), false);  // bu
 container.addEventListener("click", () => console.log("Container", true));
 container.addEventListener("click", () => console.log("Container", false));
 
-//In breve true serve a dirgli di ascoltare l'evento in fase di capturing, false in fase di bubbling. False è ommissibile perché è il default, quindi se non scrivo nulla ascolta in fase di bubbling. 
+//In breve **true** serve a dirgli di ascoltare l'evento in fase di capturing, false in fase di bubbling. False è ommissibile perché è il default, quindi se non scrivo nulla ascolta in fase di bubbling. 
 
 btn3.addEventListener("click", () => console.log("Button", true));
 btn3.addEventListener("click", () => console.log("Button", false));
+
+
 
 const btn4 = document.getElementById("btn4");
 
@@ -1752,17 +1754,17 @@ btn4.addEventListener("click", (e) => {
 //L'output sarà comuqnue "Listener 1", "Listener 2" e "Listener 3" perché stopPropagation() impedisce il bubbling dell'evento verso gli elementi genitori e non il capturing
 
 
-btn.addEventListener("click", () => {
-  console.log("Listener 1");
+btn4.addEventListener("click", () => {
+    console.log("Listener 1");
 });
 
-btn.addEventListener("click", (e) => {
-  console.log("Listener 2");
-  e.stopImmediatePropagation(); // BLOCCA TUTTO
+btn4.addEventListener("click", (e) => {
+    console.log("Listener 2");
+    e.stopImmediatePropagation(); // BLOCCA TUTTO
 });
 
-btn.addEventListener("click", () => {
-  console.log("Listener 3");
+btn4.addEventListener("click", () => {
+    console.log("Listener 3");
 });
 
 //Stesso caso ma qui l'output sarà solo "Listener 2 " perché stopImmediatePropagation() blocca tutti gli altri listener dello stesso elemento, sia quelli registrati prima che quelli registrati dopo. Il 2 ci sarà comunque perché è il target dell'evento, quindi viene eseguito prima di bloccare gli altri listener.
@@ -1777,10 +1779,73 @@ box6.addEventListener("click", () => console.log("Box CAP"), true);
 box6.addEventListener("click", () => console.log("Box BUB"));
 
 btn6.addEventListener("click", (e) => {
-  console.log("Button TARGET");
-  e.stopImmediatePropagation();
+    console.log("Button TARGET");
+    e.stopImmediatePropagation();
 });
 
 
 
-// Qui l'output sarà "Document CAP", "Box CAP", "Button TARGET" perché stopImmediatePropagation() blocca tutti gli altri listener dello stesso elemento (in questo caso il button), e il tutto il bubbling verso gli elementi genitori (box e document) viene bloccato, e se c'è anche il capturing che resta, ma quello precedente non viene bloccato perché è già stato eseguito prima del target. Quindi il capturing del document e del box viene eseguito, ma il bubbling del button viene bloccato.
+// Qui l'output sarà "Document CAP", "Box CAP", "Button TARGET" perché stopImmediatePropagation() blocca tutti gli altri listener dello stesso elemento (in questo caso il button), e tutto il bubbling verso gli elementi genitori (box e document) viene bloccato, e (se c'è) anche il capturing che resta, ma quello precedente non viene bloccato perché è già stato eseguito prima del target. Quindi il capturing del document e del box viene eseguito, ma il bubbling del button viene bloccato.
+
+const lista1 = document.getElementById("lista1");
+const aggiungi = document.getElementById("aggiungi");
+
+
+aggiungi.addEventListener("click", () => {
+    const li = document.createElement("li");
+    li.textContent = "Nuovo Elemento";
+    lista1.appendChild(li);
+});
+
+lista1.addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+        console.log("Hai cliccato", e.target.textContent);
+    };
+});
+
+
+const container1 = document.getElementById("container1");
+
+container1.addEventListener("click", (e) => {
+    if (e.target.classList.contains("edit")) {
+        console.log("Modifica");
+    };
+
+    if (e.target.classList.contains("delete")) {
+        console.log("Elimina");
+    };
+});
+
+const menu = document.getElementById("menu");
+
+menu.addEventListener("click", (e) => {
+    const action = e.target.dataset.action;
+
+    switch (action) {
+        case "open":
+            console.log("Apro file")
+            break;
+        case "save":
+            console.log("Salvo file")
+            break;
+        case "close":
+            console.log("Chiudo file")
+            break;
+    }
+});
+
+
+
+const card = document.getElementById("card");
+
+card.addEventListener("click", () => {
+    console.log("Hai cliccato la card");
+});
+
+
+card.addEventListener("click", (e) => {
+    if(e.target.classList.contains("like")) {
+        console.log("Hai cliccato il like");
+        e.stopPropagation();
+    }
+});
