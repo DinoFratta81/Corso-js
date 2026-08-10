@@ -1844,8 +1844,113 @@ card.addEventListener("click", () => {
 
 
 card.addEventListener("click", (e) => {
-    if(e.target.classList.contains("like")) {
+    if (e.target.classList.contains("like")) {
         console.log("Hai cliccato il like");
         e.stopPropagation();
     }
+});
+
+const scatola = document.getElementById("scatola");
+const move = document.getElementById("move");
+
+move.addEventListener("click", () => {
+    let pos = 0;
+
+    function anima() {
+        pos += 3;
+        scatola.style.left = pos + "px";
+
+        if (pos < 300) {
+            requestAnimationFrame(anima);
+        }
+    }
+
+    anima();
+});
+
+
+
+
+const scatola1 = document.getElementById("scatola1");
+const move1 = document.getElementById("move1");
+
+move1.addEventListener("click", () => {
+    let size = 50;
+
+    function anima() {
+        size += 2;
+        scatola1.style.width = size + "px";
+        scatola1.style.height = size + "px";
+
+        if (size < 150) {
+            requestAnimationFrame(anima);
+        }
+    }
+    anima();
+
+});
+
+
+const scatola2 = document.getElementById("scatola2");
+const move2 = document.getElementById("move2");
+
+move2.addEventListener("click", () => {
+    let opacity = 0;
+
+    function anima() {
+        opacity += 0.02;
+        scatola2.style.opacity = opacity;
+
+        if (opacity < 1) {
+            requestAnimationFrame(anima);
+        }
+    }
+
+    anima();
+});
+
+
+
+
+const scatola3 = document.getElementById("scatola3");
+const move3 = document.getElementById("move3");
+
+let pos = 300;
+
+move3.addEventListener("click", () => {
+
+    function anima() {
+        pos -= 3;
+        scatola3.style.left = pos + "px";
+
+        if (pos > 0) {
+            requestAnimationFrame(anima);
+        }
+    }
+
+    anima();
+
+});
+
+const scatola4 = document.getElementById("scatola4");
+const move4 = document.getElementById("move4");
+
+let open = false;
+
+move4.addEventListener("click", () => {
+    let pos = open ? 300 : 0;
+    const target = open ? 0 : 300;
+
+    function anima() {
+        pos += (target - pos) * 0.1
+        scatola4.style.left = pos + "px";
+
+        if (Math.abs(target - pos) > 0.5) {
+            requestAnimationFrame(anima);
+        }
+    }
+
+    anima();
+    open = !open;
+
 });
