@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+ 
 
 
 let userData = {
@@ -82,3 +82,6 @@ console.log(obj.age);  // 12
 fetch("./index.json")
   .then(res => res.json())
   .then(data => console.log(data.name));
+
+
+  

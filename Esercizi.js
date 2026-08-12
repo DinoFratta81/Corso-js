@@ -1954,3 +1954,153 @@ move4.addEventListener("click", () => {
     open = !open;
 
 });
+
+
+//Local Session
+
+const userData = {
+    name: "Carlo",
+    age: 12,
+    active: true
+};
+
+localStorage.setItem("user", JSON.stringify(userData));
+
+
+
+const savedUSer = JSON.parse(localStorage.getItem("user"));
+
+console.log(savedUSer.name);
+
+localStorage.removeItem("user");
+
+
+// 1) Salvo
+
+localStorage.setItem("settings", JSON.stringify({ theme: "dark" }));
+
+
+//2) leggo
+
+let settings = JSON.parse(localStorage.getItem("settings"));
+
+
+//3) modifico
+
+settings.theme = "light";
+
+// 4) risalvo
+localStorage.setItem("settings", JSON.stringify(settings));
+
+
+
+//Session storage
+
+
+sessionStorage.setItem("user", JSON.stringify(userData));
+
+
+const user = JSON.parse(sessionStorage.getItem("user"));
+console.log(user.name);
+
+
+
+sessionStorage.setItem("step", "2");
+
+const step = sessionStorage.getItem("step");
+console.log(step);
+
+//Chiudi la scheda → sparisce
+//Riapri la scheda → è vuoto
+
+const tempUser = {
+    name: "Carlo",
+    age: 12
+};
+
+sessionStorage.setItem("tempUser", JSON.stringify(tempUser));
+
+
+const user1 = JSON.parse(sessionStorage.getItem("tempUser"));
+console.log(user1.name);
+
+
+//IMPORTANTE = ⭐ JSON.stringify (da oggetto → stringa JSON)
+
+//Esempio
+
+const jsonString = JSON.stringify(userData);
+
+//Formattato:
+
+jsonString = JSON.stringify(userData, null, 2);
+
+//IMPORTANTE = ⭐ JSON.parse (da stringa JSON → oggetto JS)
+
+
+const obj = JSON.parse('{"name":"Piero","age":54}');
+
+// JSON + localStorage è la combo più usata
+
+const res = await fetch("https://api.example.com/user");
+const data = await res.json(); // JSON.parse interno, è automaticamente fatto dal browser
+
+await fetch("https://api.example.com/user", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData)
+});
+
+
+//Qui succede:
+
+//method: "POST" → stai inviando dati
+
+//Content-Type: application/json → dici al server che stai mandando JSON
+
+//body: JSON.stringify(userData) → converti l’oggetto in stringa JSON
+
+//il server riceve la stringa e la converte in oggetto
+
+
+
+
+//⭐ JSON nei file .json si legge:
+
+
+//Con fetch:
+const res1 = await fetch("./data.json");
+const data1 = await res1.json();
+
+
+//Cosa succede:
+//fetch("./data.json") apre il file come se fosse una risorsa web
+
+//.json() lo converte in oggetto
+
+//data1 è un oggetto JavaScript
+
+
+
+//Con import(moduli):
+
+import data2 from "./data.json"  with { type: "json" };
+console.log(data2.name);
+
+
+//Cosa succede:
+//import carica il file come modulo
+
+//assert { type: "json" } dice al browser che è JSON
+
+//data2 è già un oggetto JavaScript
+
+//non serve JSON.parse
+
+//non serve fetch
+
+//Questo funziona solo se:
+
+//il file JS è caricato con type="module"
+
+//il browser supporta JSON modules (Chrome, Edge, Firefox moderni)
