@@ -2104,3 +2104,84 @@ console.log(data2.name);
 //il file JS è caricato con type="module"
 
 //il browser supporta JSON modules (Chrome, Edge, Firefox moderni)
+
+
+async function getUser() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await res.json();
+    console.log(data);
+};
+
+getUser();
+
+
+// Inviare dati (POST)
+
+async function createPost() {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+        method : "POST",
+        headers : { "Content-Type" : "application/json"},
+        body : JSON.stringify({
+            title: "Sono un pro",
+            body: "Sto imparando fetch API",
+            userID: 1
+        })
+      });
+
+      const data = await res.json();
+      console.log(data);
+};
+
+createPost();
+
+
+
+//Con il metodo POST invio dati, con il put li aggiorno e con delete gli cancello 
+
+
+// Aggiornare dati (PUT)
+
+async function updatePost() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        method : "PUT",
+        headers :{"Content-Type" : "application/json"},
+        body: JSON.stringify({
+            title : "Aggiornare Titolo",
+            body : "Aggiornamento completato",
+            userID : 1
+        })
+    });
+
+    const data = await res.JSON();
+    console.log(data);
+};
+
+
+updatePost();
+
+// Cancellare dati (DELETE)
+
+async function deleteData() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        method : "DELETE"
+    });
+
+    console.log(res.status);
+};
+
+deletePost();
+
+
+async function getRealUsers() {
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const users = await response.json();
+        console.log(users);
+        return users;
+    } catch (error) {
+        console.error("Errore:", error);
+    };
+};
+
+
+getRealUsers();
