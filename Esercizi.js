@@ -1665,7 +1665,7 @@ password2.addEventListener("input", () => {
 });
 
 
-// ⭐ 1) LOGIN CON FORM DATA (submit)
+//  1) LOGIN CON FORM DATA (submit)
 
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -1695,7 +1695,7 @@ loginForm.addEventListener("submit", (e) => {
 });
 
 
-// ⭐ 2) LOGIN CON ACCESSO DIRETTO (bottone separato)
+//  2) LOGIN CON ACCESSO DIRETTO (bottone separato)
 directAccess.addEventListener("click", () => {
 
     // Validazione con accesso diretto
@@ -2118,18 +2118,18 @@ getUser();
 // Inviare dati (POST)
 
 async function createPost() {
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-        method : "POST",
-        headers : { "Content-Type" : "application/json"},
-        body : JSON.stringify({
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
             title: "Sono un pro",
             body: "Sto imparando fetch API",
             userID: 1
         })
-      });
+    });
 
-      const data = await res.json();
-      console.log(data);
+    const data = await res.json();
+    console.log(data);
 };
 
 createPost();
@@ -2143,12 +2143,12 @@ createPost();
 
 async function updatePost() {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
-        method : "PUT",
-        headers :{"Content-Type" : "application/json"},
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            title : "Aggiornare Titolo",
-            body : "Aggiornamento completato",
-            userID : 1
+            title: "Aggiornare Titolo",
+            body: "Aggiornamento completato",
+            userID: 1
         })
     });
 
@@ -2163,7 +2163,7 @@ updatePost();
 
 async function deleteData() {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
-        method : "DELETE"
+        method: "DELETE"
     });
 
     console.log(res.status);
@@ -2185,3 +2185,93 @@ async function getRealUsers() {
 
 
 getRealUsers();
+
+
+async function getPokemon(id) {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+        if (!res.ok) {
+            throw new Error("Pokemon non trovato");
+        }
+
+        const pokemon = await res.json();
+        console.log("Nome:", pokemon.name);
+        console.log("Altezza:", pokemon.height);
+
+        return pokemon;
+    } catch (error) {
+        console.error("Errore:", error);
+    };
+};
+
+
+async function createPost1() {
+    try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                title: "Post di Dino",
+                body: "Fetch",
+                userId: 1,
+            })
+        });
+
+        const data = await res.json();
+        console.log("Post creato", data);
+        return data;
+    } catch (error) {
+        console.error("Error:", error)
+    };
+};
+
+
+
+
+async function updatePost1(id) {
+    try {
+        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                title: "Titolo aggiornato da Dino",
+                body: "Aggiornato",
+                userId: 1
+            })
+        });
+
+        const data = await res.json();
+        console.log("Post aggiornato:", data);
+
+        return data;
+    } catch (error) {
+        console.error("Errore:", error);
+    };
+};
+
+updatePost1(1);
+
+
+async function deletePost(id) {
+    try {
+        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: "DELETE"
+        });
+
+        console.log("Status:", res.status);
+
+        if (res.ok) {
+            console.log("Delete completato");
+        } else {
+            console.log("Delete non effettuato :(")
+        };
+
+        return res.ok;
+    } catch (error) {
+        console.error("Errore :", error);
+    }
+};
+
+
+deletePost(1);
