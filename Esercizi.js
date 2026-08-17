@@ -2004,7 +2004,6 @@ const user = JSON.parse(sessionStorage.getItem("user"));
 console.log(user.name);
 
 
-
 sessionStorage.setItem("step", "2");
 
 const step = sessionStorage.getItem("step");
@@ -2084,8 +2083,8 @@ const data1 = await res1.json();
 
 //Con import(moduli):
 
-import data2 from "./data.json"  with { type: "json" };
-console.log(data2.name);
+// import data2 from "./data.json"  with { type: "json" };
+// console.log(data2.name);
 
 
 //Cosa succede:

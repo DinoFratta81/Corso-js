@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio Finale</title>
+</head>
+
+<body>
+    <h1>Pokemon Dashboard</h1>
+    <div class="controls">
+        <button class="btnPag1" onclick="loadPokemon(0)">Prima Pagina</button>
+        <button class="prevBtn" onclick="loadPokemon(currentOffset - 20)">Precedente</button>
+        <button class="nextBtn" onclick="loadPokemon(currentOffset + 20)">Successivo</button>
+    </div>
+
+
+    <div>
+        <div id="loading">Caricamento Pokemon...</div>
+        <table id="pokemonTable">
+            <thead>
+                <tr>
+                    <th>Immagine</th>
+                    <th>Nome</th>
+                    <th>ID</th>
+                    <th>Tipi</th>
+                    <th>Altezza</th>
+                    <th>Peso</th>
+                </tr>
+            </thead>
+            <tbody id="pokemonTableBody"></tbody>
+            <tfoot id="pagination"></tfoot>
+        </table>
+        <div id="detailPanel"></div>
+    </div>
+
+<script src="Esercizio Finale.js"></script>
+</body>
+
+</html>
