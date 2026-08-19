@@ -33,8 +33,8 @@ async function loadPokemon(offset = 0) {
 
         currentPokemonList = await Promise.all(pokemonPromises);
 
-        // displayPokemonTable();
-        //updatePagination();
+        displayPokemonTable(currentPokemonList);
+        updatePagination(data, offset);
 
 
         console.log(currentPokemonList);
@@ -42,3 +42,42 @@ async function loadPokemon(offset = 0) {
         console.error(error);
     }
 };
+
+
+
+
+function displayPokemonTable(pokemonList) {
+    const tbody = document.getElementById("pokemonTableBody");
+
+    tbody.innerHTML = ``
+
+    pokemonList.forEach((pokemon, index) => {
+        const row = document.createElement(`tr`);
+        const tipiHTML = pokemon.types.map(t => `<span class = "${t.type.name}">${t.type.name}</span>`)
+
+        row.innerHTML = `
+        <td>
+                  <img src = "${pokemon.sprites.front_default}"
+                  alt = "${pokemon.name}"
+                  class = "pokemon-image">
+
+        </td>
+             <td class = "pokemon-name">${pokemon.name}</td>       
+             <td class = "pokemon-id">${pokemon.id.toString().padStart(3, `0`)}</td>       
+             <td class = "pokemon-types">${tipiHTML.join(" ")}</td>       
+             <td>${(pokemon.height / 10).toFixed(1)}m</td>         
+             <td>${(pokemon.weight / 10).toFixed(1)}kg</td>        
+        `
+
+
+        tbody.appendChild(row);
+    });
+};
+
+function updatePagination(data, offeset) {
+    const pageInfo = document.getElementById("pageInfo");
+    const currentPage = Math.floor(offeset / 20) + 1;
+    const totalPages = Math.ceil(data.count / 20);
+
+    pageInfo.textContent = `Pagina ${currentPage} di ${totalPages}. Numero totale pokemon = ${data.count}.`
+}

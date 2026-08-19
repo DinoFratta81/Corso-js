@@ -1,6 +1,6 @@
 // let container = document.getElementById("container"); 
 // container.innerHTML += "asfaf"; // Aggiunge al contenuto già presente.
-// // container.innerHTML = "ciao"; //Sostituisce tutto il contenuto.  È commentato solo perchè avrebbe creato casini
+// // container.innerHTML = "ciao"; //Sostituisce tutto il contenuto. È commentato solo perchè avrebbe creato casini
 // container.innerHTML += "<p>Ciao</p>"
 // container.innerHTML += "<input type = 'text' placeholder = 'seleziona il tuo pease'>"  //Aggiunge un tag html, infatti possiamo aggiunere un qualsiasi tag html.
 let prova = document.querySelector("p.ciao");
