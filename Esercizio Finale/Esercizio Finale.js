@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadPokemon(offset = 0) {
     try {
+        window.scrollTo({top:0, behavior:"instant"});
+        document.getElementById("loading").style.display = "block";
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=40&offset=${offset}`);
         if (!response.ok) {
             throw new Error("Errore rilevato")
@@ -38,6 +40,8 @@ async function loadPokemon(offset = 0) {
 
     } catch (error) {
         console.error(error);
+    } finally {
+        document.getElementById("loading").style.display = "none";
     }
 };
 
@@ -59,9 +63,9 @@ function displayPokemonTable(pokemonList) {
                class = ""pokemon-image>
         </td>
 
-             <td class = "pokemon-name">${pokemon.name}</td>
+             <td class = "pokemon-name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</td>
              <td class = "pokemon-id">${pokemon.id.toString().padStart(3, `0`)}</td>
-             <td class = "pokemon-type">${tipiHTML.join(" ")}</td>
+             <td class = "pokemon-types">${tipiHTML.join(" ")}</td>
              <td class = "pokemon-name">${(pokemon.height / 10).toFixed(1)}m</td>
              <td class = "pokemon-name">${(pokemon.weight / 10).toFixed(1)}kg</td>
         `
@@ -76,5 +80,5 @@ function updatePagination(data, offeset) {
     let currentPage = Math.floor(offeset / 40) + 1;
     let totalPages = Math.ceil(data.count / 40);
 
-    pageInfo.textContent = `Pagina ${currentPage} di ${totalPages}. Numero totale pokemon = ${data.count}.`
+    pageInfo.textContent = `Pagina ${currentPage} di ${totalPages}. Numero totale pokemon : ${data.count}.`
 }

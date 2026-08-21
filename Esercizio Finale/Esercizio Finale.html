@@ -9,15 +9,10 @@
 </head>
 
 <body>
-    <h1>Pokemon Dashboard</h1>
-    <div class="controls">
-        <button class="btnPag1" onclick="loadPokemon(0)">Prima Pagina</button>
-        <button class="prevBtn" onclick="loadPokemon(currentOffset - 20)">Precedente</button>
-        <button class="nextBtn" onclick="loadPokemon(currentOffset + 20)">Successivo</button>
-    </div>
+    <h1 class="title">Pokemon Dashboard</h1>
 
 
-    <div>
+    <div class="content">
         <div id="loading">Caricamento Pokemon...</div>
         <table id="pokemonTable">
             <thead>
@@ -38,8 +33,16 @@
     <div id="pagination">
         <div id="pageInfo"></div>
     </div>
-    <script src="prova.js"></script>
-    
+
+
+    <div class="controls">
+        <button class="btnPag1" onclick="loadPokemon(0)">Prima Pagina</button>
+        <button class="prevBtn" onclick="loadPokemon(currentOffset - 40)">Precedente</button>
+        <button class="nextBtn" onclick="loadPokemon(currentOffset + 40)">Successivo</button>
+    </div>
+
+    <script src="Esercizio Finale.js"></script>
+
 </body>
 
 </html>
