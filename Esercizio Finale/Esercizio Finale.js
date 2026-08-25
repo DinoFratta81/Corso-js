@@ -68,7 +68,9 @@ function displayPokemonTable(pokemonList) {
              <td class = "pokemon-types">${tipiHTML.join(" ")}</td>
              <td class = "pokemon-name">${(pokemon.height / 10).toFixed(1)}m</td>
              <td class = "pokemon-name">${(pokemon.weight / 10).toFixed(1)}kg</td>
-        `
+        `;
+
+        row.pokemonData = pokemon;
         tbody.appendChild(row);
     });
 
@@ -85,34 +87,37 @@ function updatePagination(data, offeset) {
     pageInfo.textContent = `Pagina ${currentPage} di ${totalPages}. Numero totale pokemon : ${data.count}.`
 };
 
+let menuDetails = document.getElementById("menuDetails");
+
 function attachRowEvents() {
     let menuDetails = document.getElementById("menuDetails");
     const rows = document.querySelectorAll("#pokemonTable tbody tr");
 
     rows.forEach(row => {
         row.addEventListener("click", () => {
-            
+            const p = row.pokemonData;
+
+
             if (menuDetails.style.display === "block") {
                 menuDetails.style.display = "none";
                 return;
             }
 
 
-            const name = row.querySelector(".pokemon-name").textContent;
-            const tipi = row.querySelector(".pokemon-types").innerHTML
-            const id = row.querySelector(".pokemon-id").textContent;
-            const img = row.querySelector("img").src;
-
-
             menuDetails.innerHTML = `
-                <h2>${name}</h2>
-                <img src="${img}" style="width: 120px">
-                <p>ID: ${id}</p>
-                <p>${tipi}</p>
+                <h2>${p.name}</h2>
+                <img src="${p.sprites.other['official-artwork'].front_default}" style="width:150px">
+                <p>ID: ${p.id}</p>
+                <p>HP: ${p.stats[0].base_stat}</p>
+                <p>Attack: ${p.stats[1].base_stat}</p>
+                <p>Defense: ${p.stats[2].base_stat}</p>
+                <p>Speed: ${p.stats[5].base_stat}</p>
+                <p>Speed: ${p.ty}</p>
                 <button id="closePanel">Chiudi</button> 
             `;
 
             menuDetails.style.display = "block";
+
         });
     });
 }
@@ -139,3 +144,10 @@ document.addEventListener("click", (e) => {
     // altrimenti chiudi
     menuDetails.style.display = "none";
 });
+
+
+menuDetails.addEventListener("click", (e) => {
+    if(e.target.id === "closePanel") {
+        menuDetails.style.display = "none";
+    }
+})
