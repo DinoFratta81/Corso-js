@@ -90,56 +90,57 @@ function updatePagination(data, offeset) {
 let menuDetails = document.getElementById("menuDetails");
 
 function attachRowEvents() {
-    let menuDetails = document.getElementById("menuDetails");
+    const menuDetails = document.getElementById("menuDetails");
     const rows = document.querySelectorAll("#pokemonTable tbody tr");
 
     rows.forEach(row => {
         row.addEventListener("click", () => {
             const p = row.pokemonData;
 
-
-            if (menuDetails.style.display === "block") {
+            if (menuDetails.style.display === "block" && menuDetails.dataset.activePokemon === p.name) {
                 menuDetails.style.display = "none";
+                menuDetails.dataset.activePokemon = "";
                 return;
             }
+
+            menuDetails.dataset.activePokemon = p.name;
 
             menuDetails.innerHTML = `
                 <h2>${p.name.charAt(0).toUpperCase() + p.name.slice(1)}</h2>
                 <img src="${p.sprites.other['official-artwork'].front_default}" style="width:150px">
-                <div> Types: ${p.types.map(t => `<span class = " ${t.type.name}">${t.type.name}</span>`).join(" ")}</div>
-                <div class="stats">${p.stats.map(s => `<div class="stat"><p>${s.stat.name.charAt(0).toUpperCase() + s.stat.name.slice(1)} : ${s.base_stat}</p>`).join("")}</div>
+                <div> Types: ${p.types.map(t => `<span class="${t.type.name}">${t.type.name}</span>`).join(" ")}</div>
+                <div class="stats">${p.stats.map(s => `<div class="stat"><p>${s.stat.name.charAt(0).toUpperCase() + s.stat.name.slice(1)} : ${s.base_stat}</p></div>`).join("")}</div>
                 <p>Abilities : ${p.abilities.map(a => a.ability.name.charAt(0).toUpperCase() + a.ability.name.slice(1)).join(", ")}</p>
                 <p> Base Experience : ${p.base_experience}</p>
                 <p> Height: ${(p.height / 10).toFixed(1)}m</p>
                 <p> Weight: ${(p.weight / 10).toFixed(1)}kg</p>
-                <p> Forms: ${p.forms.map(f => f.name)}</p>
-                <div class = "moves">
+                <p> Forms: ${p.forms.map(f => f.name).join(", ")}</p>
+                
+                <div class="moves">
                     <p> Principal moves: ${p.moves.slice(0, 4).map(m => m.move.name.charAt(0).toUpperCase() + m.move.name.slice(1)).join(", ")}</p>
-                    <button id = "toggleMoves">Mostra tutte</button>
-                    <div id = "allMoves" style = "display : none;">
-                        ${p.moves.map(m => `<p>${m.move.name.charAt(0).toUpperCase() + m.move.name.slice(1)}</p>`).join(" ,")}
+                    <button id="toggleMoves" class="toggleMoves">Mostra tutte ▼</button>
+                    
+                    <div id="allMoves">
+                        <div class="allMoves-content">
+                            ${p.moves.map(m => `<p>${m.move.name.charAt(0).toUpperCase() + m.move.name.slice(1)}</p>`).join("")}
+                        </div>
                     </div>
                 </div>
                 
                 <button id="closePanel">Chiudi</button> 
-                `;
-                
-                const toggleMoves = document.getElementById("toggleMoves");
-                const allMoves = document.getElementById("allMoves");
+            `;
 
-                toggleMoves.addEventListener("click", () => {
-                    if(allMoves.style.display === "none") {
-                        allMoves.style.display = "block"
-                        toggleMoves.textContent = "Nascondi"
-                    } else {
-                        allMoves.style.display = "none"
-                        toggleMoves.textContent = "Mostra tutte"
-                    }
-
-                })
+    
+            const toggleMoves = document.getElementById("toggleMoves");
+            const allMoves = document.getElementById("allMoves");
+            
+            toggleMoves.addEventListener("click", () => {
+                const isOpen = allMoves.classList.toggle("open");
+                toggleMoves.classList.toggle("active", isOpen);
+                toggleMoves.textContent = isOpen ? "Nascondi ▲" : "Mostra tutte ▼";
+            });
 
             menuDetails.style.display = "block";
-
         });
     });
 }
