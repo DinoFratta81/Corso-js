@@ -110,14 +110,16 @@ function attachRowEvents() {
                 <img src="${p.sprites.other['official-artwork'].front_default}" style="width:150px">
                 <div> Types: ${p.types.map(t => `<span class="${t.type.name}">${t.type.name}</span>`).join(" ")}</div>
                 <div class="stats">${p.stats.map(s => `<div class="stat"><p>${s.stat.name.charAt(0).toUpperCase() + s.stat.name.slice(1)} : ${s.base_stat}</p></div>`).join("")}</div>
+            <div class = "info-box">
                 <p>Abilities : ${p.abilities.map(a => a.ability.name.charAt(0).toUpperCase() + a.ability.name.slice(1)).join(", ")}</p>
                 <p> Base Experience : ${p.base_experience}</p>
                 <p> Height: ${(p.height / 10).toFixed(1)}m</p>
                 <p> Weight: ${(p.weight / 10).toFixed(1)}kg</p>
                 <p> Forms: ${p.forms.map(f => f.name).join(", ")}</p>
+            </div>
                 
                 <div class="moves">
-                    <p> Principal moves: ${p.moves.slice(0, 4).map(m => m.move.name.charAt(0).toUpperCase() + m.move.name.slice(1)).join(", ")}</p>
+                    <p class = "principalMoves"> Principal moves: ${p.moves.slice(0, 4).map(m => m.move.name.charAt(0).toUpperCase() + m.move.name.slice(1)).join(", ")}</p>
                     <button id="toggleMoves" class="toggleMoves">Mostra tutte ▼</button>
                     
                     <div id="allMoves">
@@ -130,10 +132,10 @@ function attachRowEvents() {
                 <button id="closePanel">Chiudi</button> 
             `;
 
-    
+
             const toggleMoves = document.getElementById("toggleMoves");
             const allMoves = document.getElementById("allMoves");
-            
+
             toggleMoves.addEventListener("click", () => {
                 const isOpen = allMoves.classList.toggle("open");
                 toggleMoves.classList.toggle("active", isOpen);
