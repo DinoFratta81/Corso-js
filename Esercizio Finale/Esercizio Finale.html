@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="Esercizio Finale.css">
     <title>Esercizio Finale</title>
 </head>
@@ -14,20 +14,22 @@
 
     <div class="content">
         <div id="loading">Caricamento Pokemon...</div>
-        <table id="pokemonTable">
-            <thead>
-                <tr>
-                    <th>Immagine</th>
-                    <th>Nome</th>
-                    <th>ID</th>
-                    <th>Tipi</th>
-                    <th>Altezza</th>
-                    <th>Peso</th>
-                </tr>
-            </thead>
-            <tbody id="pokemonTableBody"></tbody>
-        </table>
-        <div id="detailPanel"></div>
+        <div class="table-wrapper">
+            <table id="pokemonTable">
+                <thead>
+                    <tr>
+                        <th>Immagine</th>
+                        <th>Nome</th>
+                        <th>ID</th>
+                        <th>Tipi</th>
+                        <th>Altezza</th>
+                        <th>Peso</th>
+                    </tr>
+                </thead>
+                <tbody id="pokemonTableBody"></tbody>
+            </table>
+            <div id="detailPanel"></div>
+        </div>
     </div>
 
     <div id="pagination">
@@ -43,8 +45,8 @@
             <a href="/index.html">Home Page</a>
         </button>
     </div>
-    
-    <div style="display: none;" id="menuDetails"  class="details-panel open">
+
+    <div style="display: none;" id="menuDetails" class="details-panel open">
     </div>
     <script src="Esercizio Finale.js"></script>
 
