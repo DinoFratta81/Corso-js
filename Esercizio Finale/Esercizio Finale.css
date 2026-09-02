@@ -39,11 +39,11 @@ table {
 [class*="steel"],
 [class*="fairy"] {
   display: inline-block;
-  padding: 6px 18px;
-  font-size: 13px;
+  padding: 8px 20px;
+  font-size: 7px;
   font-weight: 750;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: #ffffff;
   border-radius: 20px;
   box-shadow:
@@ -199,7 +199,7 @@ table {
 
 th,
 td {
-  padding: 10px 15px;
+  padding: 15px 20px;
   font-size: 20px;
 }
 
@@ -214,6 +214,7 @@ th {
   font-weight: bold;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
+  justify-items: center;
 }
 
 th:last-child {
@@ -346,7 +347,7 @@ tr:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-    background: #2a2a2a;
+  background: #2a2a2a;
   border: 1px solid #333;
   padding: 12px;
   border-radius: 8px;
@@ -404,8 +405,6 @@ a {
   font-size: 20px;
 }
 
-
-
 @media (max-width: 1024px) {
   #menuDetails {
     width: 380px;
@@ -415,54 +414,18 @@ a {
     width: 80px;
   }
 
-  th, td {
+  th,
+  td {
     font-size: 18px;
   }
 }
 
-
-@media (max-width: 768px) {
-  table {
-    font-size: 16px;
-  }
-
-  td img {
-    width: 60px;
-  }
-
-  #menuDetails {
-    width: 100%;
-    height: 60vh;
-    bottom: 0;
-    top: auto;
-    right: 0;
-    border-radius: 12px 12px 0 0;
-    padding: 16px;
-  }
-
-  .stats {
-    grid-template-columns: 1fr;
-  }
-
-  .allMoves-content {
-    grid-template-columns: 1fr;
-  }
-
-  #closePanel {
-    width: 90%;
-  }
-
-  .title {
-    font-size: 32px;
-  }
-}
-
 @media (max-width: 480px) {
-  th, td {
+  th,
+  td {
     font-size: 14px;
     padding: 6px;
   }
-
 
   .title {
     font-size: 32px;
@@ -484,33 +447,28 @@ a {
   }
 }
 
-
-
 td:first-child,
 th:first-child {
-  width: 140px;        
-  min-width: 140px;    
+  width: 140px;
+  min-width: 140px;
 }
 
 td img {
-  width: 100%;         
-  height: auto;        
-  object-fit: contain; 
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
-
 
 table {
   table-layout: fixed;
 }
-
 
 td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 
 .table-wrapper {
   width: 100%;
@@ -519,28 +477,15 @@ td {
 }
 
 @media (max-width: 768px) {
-
   .title {
     font-size: 28px;
     margin: 15px 5px;
   }
 
-
-  table {
-    min-width: 550px;
-  }
-
-  th, td {
-    font-size: 14px;
-    padding: 8px 5px;
-  }
-
-  
   td img {
     width: 50px;
   }
 
-  
   #menuDetails {
     width: 100% !important;
     height: 75vh !important;
@@ -554,40 +499,6 @@ td {
     z-index: 9999;
   }
 
-
-  .controls {
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 0 10px;
-  }
-
-  .btnPag1, .prevBtn, .nextBtn, .homeBtn {
-    padding: 8px 14px;
-    font-size: 13px;
-    margin-bottom: 20px;
-  }
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden; 
-}
-
-
-.table-wrapper {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-@media (max-width: 768px) {
-  
   .controls {
     flex-wrap: wrap;
     justify-content: center;
@@ -596,20 +507,42 @@ html, body {
     box-sizing: border-box;
   }
 
-  .btnPag1, .prevBtn, .nextBtn, .homeBtn {
+  .btnPag1,
+  .prevBtn,
+  .nextBtn,
+  .homeBtn {
     margin-bottom: 10px;
     font-size: 14px;
     padding: 10px 14px;
   }
 
-  
   table {
     width: 100% !important;
-    min-width: 500px; 
+    min-width: 360px;
   }
 
-  th, td {
+  th,
+  td {
     padding: 6px 8px;
     font-size: 14px;
   }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: none;
+}
+
+.table-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  -webkit-overflow-scrolling: touch;
 }
