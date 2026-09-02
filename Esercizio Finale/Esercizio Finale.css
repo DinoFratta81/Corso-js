@@ -505,6 +505,7 @@ td {
     width: 100%;
     padding: 0 10px;
     box-sizing: border-box;
+    margin-bottom: 70px;
   }
 
   .btnPag1,
@@ -516,9 +517,7 @@ td {
     padding: 10px 14px;
   }
 
-  .homeBtn {
-    margin-bottom: 70px;
-  }
+
 
   table {
     width: 100% !important;
