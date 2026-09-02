@@ -447,11 +447,6 @@ a {
   }
 }
 
-td:first-child,
-th:first-child {
-  width: 140px;
-  min-width: 140px;
-}
 
 td img {
   width: 100%;
@@ -511,7 +506,7 @@ td {
   .prevBtn,
   .nextBtn,
   .homeBtn {
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     font-size: 14px;
     padding: 10px 14px;
   }
