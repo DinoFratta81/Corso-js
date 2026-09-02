@@ -447,6 +447,11 @@ a {
   }
 }
 
+td:first-child,
+th:first-child {
+  width: 80px;
+  min-width: 140px;
+}
 
 td img {
   width: 100%;
