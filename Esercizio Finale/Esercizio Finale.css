@@ -2,7 +2,6 @@ body {
   font-family: system-ui, sans-serif;
   color: #e0e0e0;
   background-color: #1e1e1e;
-  overflow-x: hidden;
 }
 table {
   background-color: #1e1e1e;
@@ -425,7 +424,6 @@ a {
 @media (max-width: 768px) {
   table {
     font-size: 16px;
-    width: 2000px;
   }
 
   td img {
@@ -477,6 +475,7 @@ a {
   .toggleMoves {
     padding: 6px 10px;
     font-size: 16px;
+    background-color: #0056b3;
   }
 
   #closePanel {
@@ -566,5 +565,51 @@ td {
     padding: 8px 14px;
     font-size: 13px;
     margin-bottom: 20px;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; 
+}
+
+
+.table-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  
+  .controls {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .btnPag1, .prevBtn, .nextBtn, .homeBtn {
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  
+  table {
+    width: 100% !important;
+    min-width: 500px; 
+  }
+
+  th, td {
+    padding: 6px 8px;
+    font-size: 14px;
   }
 }
