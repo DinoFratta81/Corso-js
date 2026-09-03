@@ -261,6 +261,7 @@ tr:hover {
     transform 0.2s ease;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .toggleMoves:hover {
