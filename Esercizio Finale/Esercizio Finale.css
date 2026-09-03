@@ -517,8 +517,6 @@ td {
     padding: 10px 14px;
   }
 
-
-
   table {
     width: 100% !important;
     min-width: 360px;
@@ -541,12 +539,36 @@ td {
   }
 
   .types span,
-    [class*="fighting"] {
-      font-size: 9px;
-      padding: 5px 0px;
-    }
+  [class*="fighting"] {
+    font-size: 9px;
+    padding: 5px 0px;
   }
 
+  .types span,
+  [class*="normal"],
+  [class*="fire"],
+  [class*="water"],
+  [class*="electric"],
+  [class*="grass"],
+  [class*="ice"],
+  [class*="poison"],
+  [class*="ground"],
+  [class*="flying"],
+  [class*="psychic"],
+  [class*="bug"],
+  [class*="rock"],
+  [class*="ghost"],
+  [class*="dragon"],
+  [class*="dark"],
+  [class*="steel"],
+  [class*="fairy"] {
+
+    padding: 15px;
+    font-size: 12px;
+    margin: 1px;
+
+  }
+}
 
 *,
 *::before,
