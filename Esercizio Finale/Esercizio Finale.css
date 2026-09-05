@@ -329,6 +329,7 @@ tr:hover {
 }
 
 #menuDetails {
+  position: relative;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   width: 500px;
   top: 0;
@@ -342,6 +343,27 @@ tr:hover {
   padding: 20px;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.4);
   text-align: center;
+}
+
+#closeX {
+  position: absolute;
+  top: 15px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  color: #ffffff;          
+  font-size: 32px;          
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 5px 10px;
+  margin: 0; 
+  z-index: 999;             
+}
+
+#closeX:hover {
+  color: #ff4d4d;
+  transform: scale(1.2);
 }
 
 .stats {

@@ -106,6 +106,7 @@ function attachRowEvents() {
             menuDetails.dataset.activePokemon = p.name;
 
             menuDetails.innerHTML = `
+                <button id="closeX">&times;</button>
                 <h2>${p.name.charAt(0).toUpperCase() + p.name.slice(1)}</h2>
                 <img src="${p.sprites.other['official-artwork'].front_default}" style="width:150px">
                 <div class = "types"> Types: ${p.types.map(t => `<span class="${t.type.name}">${t.type.name}</span>`).join(" ")}</div>
@@ -172,7 +173,7 @@ document.addEventListener("click", (e) => {
 
 
 menuDetails.addEventListener("click", (e) => {
-    if (e.target.id === "closePanel") {
+    if (e.target.id === "closePanel" || e.target.id === "closeX") {
         menuDetails.style.display = "none";
     }
 })
